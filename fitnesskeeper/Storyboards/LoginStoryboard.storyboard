@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9MN-vf-Mjw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="yZC-Hy-E72">
+            <objects>
+                <viewController id="9MN-vf-Mjw" customClass="SplashViewController" customModule="fitnesskeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bto-hk-Wjg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="KCW-gc-lKG">
+                                <rect key="frame" x="103" y="249" width="168.5" height="168.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KCW-gc-lKG" secondAttribute="height" multiplier="1:1" id="8Oo-9t-rsp"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KCW-gc-lKG" firstAttribute="centerX" secondItem="bto-hk-Wjg" secondAttribute="centerX" id="Cek-D9-raL"/>
+                            <constraint firstItem="KCW-gc-lKG" firstAttribute="centerY" secondItem="bto-hk-Wjg" secondAttribute="centerY" id="YiG-GX-T06"/>
+                            <constraint firstItem="KCW-gc-lKG" firstAttribute="width" secondItem="bto-hk-Wjg" secondAttribute="width" multiplier="0.45" id="kvw-eT-D1F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qP0-UK-Clc"/>
+                    </view>
+                    <connections>
+                        <segue destination="aLm-SD-yBF" kind="presentation" identifier="onboardingsegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="R2R-4b-Ipr"/>
+                        <segue destination="Vez-t0-78g" kind="show" identifier="loginsegue" id="pUa-eN-cMq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPh-yg-buu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="140"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Q75-lD-olG">
+            <objects>
+                <viewController id="Vez-t0-78g" customClass="LoginViewController" customModule="fitnesskeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1ix-lO-DWj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="APM-EL-0zr"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wK7-24-yvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="161" y="906"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="QDO-At-mYC">
+            <objects>
+                <viewController id="aLm-SD-yBF" customClass="OnboardingViewController" customModule="fitnesskeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pgW-4E-9tb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Xvs-gz-0V7"/>
+                    </view>
+                    <connections>
+                        <segue destination="Vez-t0-78g" kind="presentation" identifier="loginfromOBsegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="APq-5Z-4Qp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KY5-sX-X40" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="140"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="2480" height="2480"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="APq-5Z-4Qp"/>
+    </inferredMetricsTieBreakers>
+</document>
