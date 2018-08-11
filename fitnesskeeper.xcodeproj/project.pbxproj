@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B7B9BAB749E5FC0E01CB0B6 /* Pods_fitnesskeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E07F29DAB706F55AB10C30 /* Pods_fitnesskeeper.framework */; };
+		CE4325EC211F4A8D00400FE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */; };
 		EABE1A0D211EF0B9003EE6DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */; };
 		EABE1A14211EF0BA003EE6DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EABE1A13211EF0BA003EE6DD /* Assets.xcassets */; };
 		EABE1A17211EF0BA003EE6DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EABE1A15211EF0BA003EE6DD /* LaunchScreen.storyboard */; };
@@ -26,6 +27,7 @@
 		7A7535CA4AF77B98D398E8E3 /* Pods-fitnesskeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnesskeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitnesskeeper/Pods-fitnesskeeper.debug.xcconfig"; sourceTree = "<group>"; };
 		825F637AD0B9621451D9AB30 /* Pods-fitnesskeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnesskeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitnesskeeper/Pods-fitnesskeeper.release.xcconfig"; sourceTree = "<group>"; };
 		A7E07F29DAB706F55AB10C30 /* Pods_fitnesskeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnesskeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EABE1A09211EF0B9003EE6DD /* fitnesskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnesskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EABE1A13211EF0BA003EE6DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				EABE1A27211EF174003EE6DD /* ThirdPartyExtensions */,
 				EABE1A28211EF1D4003EE6DD /* Resources */,
 				EABE1A13211EF0BA003EE6DD /* Assets.xcassets */,
+				CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */,
 				EABE1A18211EF0BA003EE6DD /* Info.plist */,
 			);
 			path = fitnesskeeper;
@@ -202,6 +205,7 @@
 				EABE1A05211EF0B9003EE6DD /* Sources */,
 				EABE1A06211EF0B9003EE6DD /* Frameworks */,
 				EABE1A07211EF0B9003EE6DD /* Resources */,
+				44A3E27B54508A5F99747400 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +256,7 @@
 			files = (
 				EABE1A17211EF0BA003EE6DD /* LaunchScreen.storyboard in Resources */,
 				EABE1A14211EF0BA003EE6DD /* Assets.xcassets in Resources */,
+				CE4325EC211F4A8D00400FE5 /* GoogleService-Info.plist in Resources */,
 				EABE1A23211EF133003EE6DD /* LoginStoryboard.storyboard in Resources */,
 				EABE1A25211EF142003EE6DD /* ExerciseStoryboard.storyboard in Resources */,
 			);
@@ -260,6 +265,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		44A3E27B54508A5F99747400 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-fitnesskeeper/Pods-fitnesskeeper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fitnesskeeper/Pods-fitnesskeeper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C664FA4BCD0C071D72FA654C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
