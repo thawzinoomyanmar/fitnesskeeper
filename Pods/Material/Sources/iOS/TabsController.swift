@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -172,11 +172,6 @@ open class TabsController: TransitionController {
     super.init(rootViewController: rootViewController)
   }
   
-  open override func viewWillLayoutSubviews() {
-    super.viewWillLayoutSubviews()
-    layoutSubviews()
-  }
-  
   open override func layoutSubviews() {
     super.layoutSubviews()
     layoutTabBar()
@@ -235,7 +230,7 @@ fileprivate extension TabsController {
     }
     
     super.transition(to: viewController) { [weak self, viewController = viewController, completion = completion] (isFinishing) in
-      guard let s = self else {
+      guard let `self` = self else {
         return
       }
       
@@ -246,7 +241,7 @@ fileprivate extension TabsController {
       completion?(isFinishing)
       
       if isTriggeredByUserInteraction {
-        s.delegate?.tabsController?(tabsController: s, didSelect: viewController)
+        self.delegate?.tabsController?(tabsController: self, didSelect: viewController)
       }
     }
   }
@@ -262,7 +257,6 @@ fileprivate extension TabsController {
   func prepareTabBar() {
     tabBar.lineAlignment = .bottom == tabBarAlignment ? .top : .bottom
     tabBar._delegate = self
-    tabBar.delegate = self
     view.addSubview(tabBar)
   }
   
@@ -274,6 +268,7 @@ fileprivate extension TabsController {
       // Expectation that viewDidLoad() triggers update of tabItem:
       if #available(iOS 9.0, *) {
         v.loadViewIfNeeded()
+      
       } else {
         _ = v.view
       }
@@ -379,10 +374,12 @@ fileprivate extension TabsController {
       switch swipeGesture.direction {
       case .right:
         guard (selectedIndex - 1) >= 0 else { return }
-        select(at: selectedIndex - 1)
+        internalSelect(at: selectedIndex - 1, isTriggeredByUserInteraction: true, selectTabItem: true)
+      
       case .left:
         guard (selectedIndex + 1) < viewControllers.count else { return }
-        select(at: selectedIndex + 1)
+        internalSelect(at: selectedIndex + 1, isTriggeredByUserInteraction: true, selectTabItem: true)
+      
       default:
         break
       }
@@ -396,53 +393,51 @@ extension TabsController {
    - Parameter at index: An Int.
    */
   open func select(at index: Int) {
-    guard index != selectedIndex else {
-      return
-    }
-    
-    Motion.async { [weak self] in
-      guard let s = self else {
-        return
-      }
-      
-      s.tabBar.select(at: index)
-      
-      s.transition(to: s.viewControllers[index], isTriggeredByUserInteraction: false) { [weak self] (isFinishing) in
-        guard isFinishing else {
-          return
-        }
-        
-        self?.selectedIndex = index
-      }
-    }
+    internalSelect(at: index, isTriggeredByUserInteraction: false, selectTabItem: true)
   }
-}
-
-extension TabsController: TabBarDelegate, _TabBarDelegate {
-  @objc
-  func _tabBar(tabBar: TabBar, willSelect tabItem: TabItem) {
-    guard !(false == tabBar.delegate?.tabBar?(tabBar: tabBar, shouldSelect: tabItem)) else {
-      return
+  
+  /**
+   Transitions to the view controller that is at the given index.
+   - Parameter at index: An Int.
+   - Parameter isTriggeredByUserInteraction: A boolean indicating whether the
+   state was changed by a user interaction, true if yes, false otherwise.
+   - Returns: A boolean indicating whether the transition will take place.
+   */
+  @discardableResult
+  private func internalSelect(at index: Int, isTriggeredByUserInteraction: Bool, selectTabItem: Bool) -> Bool {
+    guard index != selectedIndex else {
+      return false
     }
     
-    guard let i = tabBar.tabItems.index(of: tabItem) else {
-      return
+    if isTriggeredByUserInteraction {
+      guard !(false == delegate?.tabsController?(tabsController: self, shouldSelect: viewControllers[index])) else {
+        return false
+      }
     }
     
-    guard i != selectedIndex else {
-      return
+    if selectTabItem {
+      tabBar.select(at: index)
     }
     
-    guard !(false == delegate?.tabsController?(tabsController: self, shouldSelect: viewControllers[i])) else {
-      return
-    }
-    
-    transition(to: viewControllers[i], isTriggeredByUserInteraction: true) { [weak self] (isFinishing) in
+    transition(to: viewControllers[index], isTriggeredByUserInteraction: isTriggeredByUserInteraction) { [weak self] (isFinishing) in
       guard isFinishing else {
         return
       }
       
-      self?.selectedIndex = i
+      self?.selectedIndex = index
     }
+    
+    return true
+  }
+}
+
+extension TabsController: _TabBarDelegate {
+  @objc
+  func _tabBar(tabBar: TabBar, shouldSelect tabItem: TabItem) -> Bool {
+    guard let i = tabBar.tabItems.index(of: tabItem) else {
+      return false
+    }
+    
+    return internalSelect(at: i, isTriggeredByUserInteraction: true, selectTabItem: false)
   }
 }

@@ -19,15 +19,8 @@ var mode = 0 // for mode signin = 1
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func SignUpSignIn(_ sender: UIButton) {
-     self.showBusy()
-        if mode == 0{
-            signUp()
-        }
-        else if mode == 1 {
-            singUp()
-            
-            
-        }
+
+        
         
     }
     func singUp() {
@@ -39,15 +32,8 @@ var mode = 0 // for mode signin = 1
         }
         Auth.auth().createUser(withEmail: email, password: pwd) { (user, error) in
             
-            if error == nil {
-                print(user?.uid, user?.email, user?.displayName)
-                self.hideBusy()
-                //self.proceedNextScreen()
-            }
-            else {
-                self.hideBusy()
-                print(error?.localizedDescription)
-            }
+           
+            
         }
     }
     
@@ -62,15 +48,8 @@ var mode = 0 // for mode signin = 1
         
         Auth.auth().signIn (withEmail: email, password: pwd) { (user, error) in
             
-            if error == nil {
-                self.hideBusy()
-                print(user?.uid, user?.email, user?.displayName)
-                //self.proceedNextScreen()
-            }
-            else {
-                self.hideBusy()
-                print(error?.localizedDescription)
-            }
+           
+          
         }
     }
     
@@ -81,7 +60,7 @@ var mode = 0 // for mode signin = 1
         Auth.auth().addStateDidChangeListener{(auth, user) in
             if user != nil {
                 //user is active
-                self.proceedNextScreen()
+               
                 
                 
             }
@@ -102,14 +81,7 @@ var mode = 0 // for mode signin = 1
         }
         Auth.auth().createUser(withEmail: email ,password: pwd){(user, error) in#imageLiteral(resourceName: "ic_menu_white")
             if error == nil{
-                print(user?.uid, user?.email, user?.displayName)
-                self.hideBusy()
-            }
-            else {
-                self.hidBusy()
-                print(error?.localizedDescription)
-                
-            }
+           
         }
         
         
@@ -125,7 +97,13 @@ var mode = 0 // for mode signin = 1
         
         
     }
-
+        func hideBusy() {
+            for view in self.view.subviews {
+                if view is UIActivityIndicatorView {
+                    view.removeFromSuperview()
+                }
+            }
+}
     /*
     // MARK: - Navigation
 
@@ -136,4 +114,4 @@ var mode = 0 // for mode signin = 1
     }
     */
 
-}
+    }}
