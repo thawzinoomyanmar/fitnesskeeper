@@ -25,11 +25,11 @@ var mode = 0 // for mode signup = 1
         if mode == 0 {
             signIn()
         } else if mode == 1 {
-            singUp()
+            SignUp()
         }
         
     }
-    func singUp() {
+    func SignUp() {
         guard let email = emailTextField.text ,email != "" else{
         return
     }
@@ -71,15 +71,15 @@ var mode = 0 // for mode signup = 1
         
     }
     
-    func setLoginUI( ) {
-        self.signUpInBtn.setTitle("Log In", for: .normal)
-        self.changeModeBtn.setTitle("New user? Sign Up", for: .normal)
-    }
-    func setSignUpUI( ) {
-        self.signUpInBtn.setTitle("Sign up", for: .normal)
-        self.changeModeBtn.setTitle("Already register? Log In", for: .normal)
-        
-    }
+            func setLoginUI( ) {
+                self.signUpInBtn.setTitle("Log In", for: .normal)
+                self.changeModeBtn.setTitle("New user? Sign Up", for: .normal)
+            }
+            func setSignUpUI( ) {
+                self.signUpInBtn.setTitle("Sign up", for: .normal)
+                self.changeModeBtn.setTitle("Already register? Log In", for: .normal)
+                
+            }
  
     override func viewDidLoad() {
         super.viewDidLoad()
