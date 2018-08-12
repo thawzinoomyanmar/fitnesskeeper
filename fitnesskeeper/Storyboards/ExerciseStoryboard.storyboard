@@ -17,11 +17,68 @@
                     <view key="view" contentMode="scaleToFill" id="tXi-Jb-Kqz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="skX-v0-Y93">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c2P-L5-XuY">
+                                    <size key="itemSize" width="180" height="180"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="IgE-7M-MD9" customClass="ExerciseListsCollectionViewCell" customModule="fitnesskeeper" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="photo1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ima-Rp-PUc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="159.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNH-mQ-tii">
+                                                    <rect key="frame" x="0.0" y="159.5" width="180" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Ima-Rp-PUc" secondAttribute="trailing" id="7yy-LQ-Cf6"/>
+                                            <constraint firstItem="Ima-Rp-PUc" firstAttribute="top" secondItem="IgE-7M-MD9" secondAttribute="top" id="AdY-Xg-g1C"/>
+                                            <constraint firstItem="PNH-mQ-tii" firstAttribute="leading" secondItem="IgE-7M-MD9" secondAttribute="leading" id="TPw-F9-A5i"/>
+                                            <constraint firstItem="PNH-mQ-tii" firstAttribute="top" secondItem="Ima-Rp-PUc" secondAttribute="bottom" id="aqT-VE-nLH"/>
+                                            <constraint firstAttribute="bottom" secondItem="PNH-mQ-tii" secondAttribute="bottom" id="icf-Px-CqI"/>
+                                            <constraint firstItem="Ima-Rp-PUc" firstAttribute="leading" secondItem="IgE-7M-MD9" secondAttribute="leading" id="qNB-rQ-SNf"/>
+                                            <constraint firstAttribute="trailing" secondItem="PNH-mQ-tii" secondAttribute="trailing" id="yvV-Pd-QNG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="exerciseImage" destination="Ima-Rp-PUc" id="6ga-ee-zKa"/>
+                                            <outlet property="exerciselbl" destination="PNH-mQ-tii" id="zNz-NP-KgQ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="nzQ-Oq-rxk" id="jDJ-RA-55c"/>
+                                    <outlet property="delegate" destination="nzQ-Oq-rxk" id="gYD-al-E7i"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.92513893179999995" blue="0.46069602980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="skX-v0-Y93" firstAttribute="leading" secondItem="bkb-Ny-Hci" secondAttribute="leading" id="X9s-JV-Afz"/>
+                            <constraint firstItem="bkb-Ny-Hci" firstAttribute="bottom" secondItem="skX-v0-Y93" secondAttribute="bottom" id="e8U-Rv-W10"/>
+                            <constraint firstItem="skX-v0-Y93" firstAttribute="top" secondItem="bkb-Ny-Hci" secondAttribute="top" id="n2R-JX-Nqu"/>
+                            <constraint firstItem="bkb-Ny-Hci" firstAttribute="trailing" secondItem="skX-v0-Y93" secondAttribute="trailing" id="qGc-iN-FNL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bkb-Ny-Hci"/>
                     </view>
                     <navigationItem key="navigationItem" id="jFR-NG-fB8"/>
                     <connections>
+                        <outlet property="exerciseListCollection" destination="skX-v0-Y93" id="ZHZ-Uz-MCH"/>
                         <segue destination="fe1-kF-1oI" kind="show" identifier="exerciseinfosegue" id="f1x-cX-xdy"/>
                         <segue destination="szK-bw-cor" kind="show" identifier="userexerciseinfosegue" id="pG6-XZ-4vO"/>
                     </connections>
@@ -79,4 +136,7 @@
             <point key="canvasLocation" x="12" y="-110.19490254872565"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo1.png" width="246" height="370"/>
+    </resources>
 </document>
