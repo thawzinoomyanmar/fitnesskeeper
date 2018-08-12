@@ -10,17 +10,23 @@ import UIKit
 import Firebase
 class LoginViewController: UIViewController {
    
-var mode = 0 // for mode signin = 1
+var mode = 0 // for mode signup = 1
    
 
     @IBOutlet weak var signUpInBtn: UIButton!
+    @IBOutlet weak var changeModeBtn: UIButton!
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func SignUpSignIn(_ sender: UIButton) {
 
-        
+        if mode == 0 {
+            signIn()
+        } else if mode == 1 {
+            singUp()
+        }
         
     }
     func singUp() {
@@ -47,30 +53,55 @@ var mode = 0 // for mode signin = 1
         }
         
         Auth.auth().signIn (withEmail: email, password: pwd) { (user, error) in
-            
+                
            
           
         }
     }
     
+    
+    @IBAction func changeMode(_ sender: UIButton) {
+        
+        mode == 0 ?( mode = 1) : (mode  = 0)
+        switch mode {
+            case  0: setLoginUI( )
+            case  1:setSignUpUI( )
+        default: break
+        }
+        
+    }
+    
+    func setLoginUI( ) {
+        self.signUpInBtn.setTitle("Log In", for: .normal)
+        self.changeModeBtn.setTitle("New user? Sign Up", for: .normal)
+    }
+    func setSignUpUI( ) {
+        self.signUpInBtn.setTitle("Sign up", for: .normal)
+        self.changeModeBtn.setTitle("Already register? Log In", for: .normal)
+        
+    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Token
+       setLoginUI()
         Auth.auth().addStateDidChangeListener{(auth, user) in
             if user != nil {
                 //user is active
-               
+               self.loadHomeVC()
                 
                 
             }
         }
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK: Load HomeVC
+    func loadHomeVC( ) {
+        let sb =  UIStoryboard(name: "ExerciseStoryboard", bundle: nil)
+        if  let homeVC = sb.instantiateInitialViewController() as? UINavigationController {
+            present(homeVC, animated: true, completion: nil)
+        }
     }
     func signUp() {
         guard let email = emailTextField.text , email != "" else {
@@ -103,15 +134,11 @@ var mode = 0 // for mode signin = 1
                     view.removeFromSuperview()
                 }
             }
+        }
+        
+     
+        
+    
+    
 }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    }}
+}

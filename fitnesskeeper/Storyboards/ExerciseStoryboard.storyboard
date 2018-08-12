@@ -79,28 +79,12 @@
                     <navigationItem key="navigationItem" id="jFR-NG-fB8"/>
                     <connections>
                         <outlet property="exerciseListCollection" destination="skX-v0-Y93" id="ZHZ-Uz-MCH"/>
-                        <segue destination="fe1-kF-1oI" kind="show" identifier="exerciseinfosegue" id="f1x-cX-xdy"/>
                         <segue destination="szK-bw-cor" kind="show" identifier="userexerciseinfosegue" id="pG6-XZ-4vO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esT-1t-30R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="951.20000000000005" y="-110.19490254872565"/>
-        </scene>
-        <!--Exercise Info View Controller-->
-        <scene sceneID="55e-Gj-haJ">
-            <objects>
-                <viewController id="fe1-kF-1oI" customClass="ExerciseInfoViewController" customModule="fitnesskeeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="W1L-5K-5ee">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.51229869360000002" green="0.47216546459999997" blue="0.96080166099999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="safeArea" id="IK8-hm-UUV"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TMi-Xl-Rae" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2223.1999999999998" y="-528.48575712143929"/>
         </scene>
         <!--User Exercise Info View Controller-->
         <scene sceneID="o9l-U0-wJn">

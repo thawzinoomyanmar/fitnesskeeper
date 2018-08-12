@@ -29,13 +29,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-
+        
     }
     func setup()  {
         let segmentCtrl = UISegmentedControl()
+        
         segmentCtrl.insertSegment(withTitle: "Activity", at: 0, animated: false)
          segmentCtrl.insertSegment(withTitle: "History", at: 1, animated: false)
-        self.navigationItem.titleView?.addSubview(segmentCtrl)
+        segmentCtrl.frame = CGRect(x: 0, y: 0, width: view.frame.size.width / 2 , height: (self.navigationController?.navigationBar.frame.size.height)! - 20 )
+        
+        self.navigationItem.titleView = segmentCtrl
+        segmentCtrl.selectedSegmentIndex = 0
         segmentCtrl.addTarget(self, action:  #selector(clickSegment(_:)) , for: .valueChanged)
     }
     @objc func clickSegment(_ segment: UISegmentedControl) {
@@ -43,6 +47,13 @@ class HomeViewController: UIViewController {
         } else {
             
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //TODO: Load exe info in proper place
+       // let exerciseInfoVC =  UIViewController(nibName: "ExerciseInfoViewController", bundle: nil)
+        //self.navigationController?.pushViewController(exerciseInfoVC, animated: true)
+        //present(exerciseInfoVC, animated: true, completion: nil)
     }
 }
 
