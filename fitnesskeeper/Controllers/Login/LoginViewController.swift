@@ -103,20 +103,7 @@ var mode = 0 // for mode signup = 1
             present(homeVC, animated: true, completion: nil)
         }
     }
-    func signUp() {
-        guard let email = emailTextField.text , email != "" else {
-            return
-        }
-        guard let pwd = passwordTextField.text , pwd != ""  else {
-            return
-        }
-        Auth.auth().createUser(withEmail: email ,password: pwd){(user, error) in#imageLiteral(resourceName: "ic_menu_white")
-            if error == nil{
-           
-        }
-        
-        
-    }
+  
 
     func showBusy() {
         
@@ -141,4 +128,4 @@ var mode = 0 // for mode signup = 1
     
     
 }
-}
+
