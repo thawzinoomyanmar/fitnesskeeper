@@ -51,13 +51,91 @@
                     <view key="view" contentMode="scaleToFill" id="1ix-lO-DWj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixW-D7-XuR">
+                                <rect key="frame" x="16" y="29" width="81" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgr-EI-MsU">
+                                <rect key="frame" x="0.0" y="267" width="375" height="400"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9H-Cb-LqI">
+                                        <rect key="frame" x="20" y="350" width="335" height="30"/>
+                                        <state key="normal" title="Guest?. login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="       Enter user name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mX0-Ig-EqN">
+                                        <rect key="frame" x="82" y="129" width="198" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="       Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EmU-8u-DHB">
+                                        <rect key="frame" x="82" y="167" width="198" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qx-ex-CGu">
+                                        <rect key="frame" x="83" y="213" width="198" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SignUpSignIn:" destination="Vez-t0-78g" eventType="touchUpInside" id="UwR-cX-LQI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xh-6b-811">
+                                        <rect key="frame" x="114" y="251" width="135" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="New user? Sign Up ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeMode:" destination="Vez-t0-78g" eventType="touchUpInside" id="t55-O9-tc2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="g9H-Cb-LqI" firstAttribute="leading" secondItem="Fgr-EI-MsU" secondAttribute="leading" constant="20" id="1DI-9P-LLS"/>
+                                    <constraint firstAttribute="trailing" secondItem="g9H-Cb-LqI" secondAttribute="trailing" constant="20" id="Bn3-7G-Ddy"/>
+                                    <constraint firstItem="g9H-Cb-LqI" firstAttribute="centerX" secondItem="Fgr-EI-MsU" secondAttribute="centerX" id="HQ7-C9-acB"/>
+                                    <constraint firstAttribute="bottom" secondItem="g9H-Cb-LqI" secondAttribute="bottom" constant="20" id="IDz-fc-Qpr"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Yky-9b-I51">
+                                <rect key="frame" x="79" y="63" width="217" height="197"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fgr-EI-MsU" firstAttribute="trailing" secondItem="APM-EL-0zr" secondAttribute="trailing" id="7gV-gW-iP6"/>
+                            <constraint firstItem="Fgr-EI-MsU" firstAttribute="bottom" secondItem="APM-EL-0zr" secondAttribute="bottom" id="I0C-e0-bP3"/>
+                            <constraint firstItem="Fgr-EI-MsU" firstAttribute="height" secondItem="1ix-lO-DWj" secondAttribute="height" multiplier="0.6" id="gSU-jF-I95"/>
+                            <constraint firstItem="Fgr-EI-MsU" firstAttribute="leading" secondItem="APM-EL-0zr" secondAttribute="leading" id="hH2-pI-6OQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="APM-EL-0zr"/>
                     </view>
+                    <connections>
+                        <outlet property="changeModeBtn" destination="3xh-6b-811" id="vCd-vc-QM1"/>
+                        <outlet property="emailTextField" destination="mX0-Ig-EqN" id="B8K-FW-giY"/>
+                        <outlet property="passwordTextField" destination="EmU-8u-DHB" id="4lm-ky-i6T"/>
+                        <outlet property="signUpInBtn" destination="1qx-ex-CGu" id="DMs-av-he4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wK7-24-yvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="906"/>
+            <point key="canvasLocation" x="160.80000000000001" y="905.3973013493254"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="QDO-At-mYC">
@@ -66,7 +144,7 @@
                     <view key="view" contentMode="scaleToFill" id="pgW-4E-9tb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.33029523659999999" green="0.39742551669999998" blue="0.7752995466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Xvs-gz-0V7"/>
                     </view>
                     <connections>

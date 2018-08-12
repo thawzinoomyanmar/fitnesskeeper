@@ -13,7 +13,21 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        var runtime =   UserDefaults.standard.integer(forKey:   "runtime")
+        if runtime >  0 {
+            performSegue(withIdentifier: "loginsegue", sender: nil)
+        }
+        else {
+            performSegue(withIdentifier: "onboardingsegue", sender: nil)
+        }
+        runtime += 1
+        UserDefaults.standard.set(runtime, forKey: "runtime")
+        UserDefaults.standard.synchronize() 
     }
 
     override func didReceiveMemoryWarning() {
