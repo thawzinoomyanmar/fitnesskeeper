@@ -19,9 +19,11 @@ var mode = 0 // for mode signup = 1
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var lblCaution: UILabel!
     
     @IBAction func SignUpSignIn(_ sender: UIButton) {
-
+        self.view.endEditing(true)
+       self.lblCaution.text = ""
         if mode == 0 {
             signIn()
         } else if mode == 1 {
@@ -38,7 +40,17 @@ var mode = 0 // for mode signup = 1
         }
         Auth.auth().createUser(withEmail: email, password: pwd) { (user, error) in
             
-           
+            if error == nil {
+             
+             self.hideBusy()
+                
+            }
+            else {
+                self.hideBusy()
+                
+                print(error?.localizedDescription)
+            }
+
             
         }
     }
@@ -52,9 +64,21 @@ var mode = 0 // for mode signup = 1
             return
         }
         
-        Auth.auth().signIn (withEmail: email, password: pwd) { (user, error) in
-                
+        Auth.auth().signIn (withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
            
+            let dialog = UIAlertController(title: error!.localizedDescription, message: "", preferredStyle: UIAlertControllerStyle.alert)
+            dialog.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            DispatchQueue.main.async(execute: {
+                self.present(dialog, animated: true, completion: nil)
+            })
+//            if let error = error {
+//                print(error.localizedDescription)
+//           self.lblCaution.text = "\(error.localizedDescription)"
+//            }
+//            else if let user = user {
+//                print (user)
+//                self.lblCaution.text = " \(email)"
+//            }
           
         }
     }
