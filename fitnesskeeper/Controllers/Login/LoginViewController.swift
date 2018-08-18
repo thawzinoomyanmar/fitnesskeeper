@@ -70,7 +70,8 @@ var mode = 0 // for mode signup = 1
             dialog.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             DispatchQueue.main.async(execute: {
                 self.present(dialog, animated: true, completion: nil)
-            })
+            })//Alert Error Message
+            
 //            if let error = error {
 //                print(error.localizedDescription)
 //           self.lblCaution.text = "\(error.localizedDescription)"
@@ -78,7 +79,7 @@ var mode = 0 // for mode signup = 1
 //            else if let user = user {
 //                print (user)
 //                self.lblCaution.text = " \(email)"
-//            }
+            //            }(NOTE: Label Show in View Controller Page)
           
         }
     }
