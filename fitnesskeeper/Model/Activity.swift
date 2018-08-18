@@ -1,0 +1,56 @@
+//
+/*------------------------------------------------------------------------------
+  
+  This source is part of the Thaw Zin Oo and Team Members.
+  Copyright  2018,2019, Thaw Zin Oo and/or its affiliates. All rights reserved.
+  
+  No part of this work may be reproduced, stored in a retrieval system,
+  adopted or transmitted in any form or by any means, electronic, mechanical,
+  photographic, graphic, optic recording or otherwise, translated in any language
+  or computer language, without the prior written permission of Thaw Zin Oo and its affiliates.
+  
+
+  Yangon,
+  Myanmar.
+  
+  Modification History
+  
+  Date        Version        Author               Description
+  ----------  -----------    ---------------      ----------------------------------------
+  18/08/2018  1.0            Min Aung Hein        Initial Version
+ 
+  
+  
+  ------------------------------------------------------------------------------*/
+/*
+ 
+ "remark" : "",
+ "unit" : "m",
+ "urls" : [ "firebasestorage.googleapis.com", "" ]*/
+import Foundation
+
+class Activity {
+    private var _id:Int
+    
+    var id:Int {return _id }
+    
+   private  var _name:String
+    var name:String { return _name }
+    
+    var desc:String
+    private var _unit:String = ""
+    var unit :String { return _unit }
+    private var  _imageURLs:[String]?
+    var imageURLs: [String]? { return  _imageURLs}
+    
+    var duration:TimeInterval  = 0
+    var freq:Int = 0
+    
+    init(id:Int, name:String ,desc:String) {
+        self._id = id
+        self._name = name
+        self.desc = desc
+    }
+}
+
+
