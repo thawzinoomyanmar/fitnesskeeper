@@ -26,7 +26,7 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
     - GoogleUtilities/MethodSwizzler (~> 5.2.0)
     - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - GoogleUtilities/NSData+zlib (~> 5.2)
     - nanopb (~> 0.3)
   - FirebaseAuth (5.0.3):
     - FirebaseAuthInterop (~> 1.0)
@@ -49,7 +49,7 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
     - GoogleUtilities/MethodSwizzler (~> 5.2.0)
     - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - GoogleUtilities/NSData+zlib (~> 5.2)
     - nanopb (~> 0.3)
   - GoogleUtilities/AppDelegateSwizzler (5.2.2):
     - GoogleUtilities/Environment
@@ -62,9 +62,9 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/Network (5.2.2):
     - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/NSData+zlib
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.2.2)"
+  - GoogleUtilities/NSData+zlib (5.2.2)
   - GoogleUtilities/Reachability (5.2.2):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
@@ -83,6 +83,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - paper-onboarding (4.1.0)
   - SideMenu (4.0.0)
 
 DEPENDENCIES:
@@ -96,30 +97,8 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher
   - Material
+  - paper-onboarding
   - SideMenu
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Charts
-    - Eureka
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseAuth
-    - FirebaseAuthInterop
-    - FirebaseCore
-    - FirebaseDatabase
-    - FirebaseInstanceID
-    - FirebaseStorage
-    - GoogleAppMeasurement
-    - GoogleUtilities
-    - GTMSessionFetcher
-    - IQKeyboardManagerSwift
-    - Kingfisher
-    - leveldb-library
-    - Material
-    - Motion
-    - nanopb
-    - SideMenu
 
 SPEC CHECKSUMS:
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
@@ -141,8 +120,9 @@ SPEC CHECKSUMS:
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  paper-onboarding: 344780cbb0bfc229cd1862f5b9bba446b23c5185
   SideMenu: 70ee5657df63ec3382660ec4ef470bf1cf5db07d
 
-PODFILE CHECKSUM: af24c3dd6a118494c1689f40cb36df744555a9dd
+PODFILE CHECKSUM: 2bf714185c95f00f1c1327d4db7ba88ba6b76ce0
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0
