@@ -7,6 +7,7 @@ target 'fitnesskeeper' do
 
   # Pods for fitnesskeeper
 pod 'Firebase'
+#pod 'paper-onboarding'
 pod 'Eureka'
 pod 'Charts'
 pod 'SideMenu'
