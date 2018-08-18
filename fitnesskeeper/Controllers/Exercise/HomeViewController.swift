@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseStorage
 class HomeViewController: UIViewController {
     var exercistLists = [
         ["photo":"photo1.png","name":"Skiing"],
@@ -29,7 +30,25 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        downloadImage()
         
+    }
+    func downloadImage(){
+//     let reference =  Storage.stor..child("https://firebasestorage.googleapis.com/v0/b/fitnesskeeper-c903f.appspot.com/o/ActivityImages%2Factivity1_1.png?alt=media&token=f0a10c42-cc2e-4032-b04f-0734613bad1c")
+        let reference = Storage.storage().reference(withPath: "https://firebasestorage.googleapis.com/v0/b/fitnesskeeper-c903f.appspot.com/o/ActivityImages%2Factivity1_1.png?alt=media&token=f0a10c42-cc2e-4032-b04f-0734613bad1c")
+       
+        reference.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
+            if let _error = error{
+                print(_error)
+             //   failure(_error)
+            } else {
+                print("Downloaded complete")
+//                if let _data  = data {
+//                    let myImage:UIImage! = UIImage(data: _data)
+//                    success(myImage)
+//                }
+            }
+        }
     }
     func setup()  {
         let segmentCtrl = UISegmentedControl()
@@ -71,6 +90,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell!
         
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let VC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
+    //    self.present(myViewController, animated: true, completion: nil)
+   //  let VC =    self.storyboard?.instantiateViewController(withIdentifier: "info") as! ExerciseInfoViewController
+//        let VC:ExerciseInfoViewController = UIViewController(nibName: "ExerciseInfoViewController", bundle: nil) as! ExerciseInfoViewController
+        navigationController?.pushViewController(VC, animated: true)
+   //     self.present(VC,animated: true,completion: nil)
+    }
+    
     
     
 }
