@@ -312,6 +312,7 @@ static NSMutableDictionary *sLibraryVersions;
     return NO;
   }
 
+#if TARGET_OS_IOS
   // Initialize the Analytics once there is a valid options under default app. Analytics should
   // always initialize first by itself before the other SDKs.
   if ([self.name isEqualToString:kFIRDefaultAppName]) {
@@ -333,6 +334,8 @@ static NSMutableDictionary *sLibraryVersions;
       }
     }
   }
+#endif
+
   return YES;
 }
 
