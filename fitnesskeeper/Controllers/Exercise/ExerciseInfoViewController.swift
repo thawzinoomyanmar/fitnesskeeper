@@ -26,6 +26,7 @@ import UIKit
 
 class ExerciseInfoViewController: UIViewController {
 
+    var activity:Activity! //will allocate later , given by other 
     override func viewDidLoad() {
         super.viewDidLoad()
 

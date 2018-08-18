@@ -19,7 +19,7 @@ class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         var runtime =   UserDefaults.standard.integer(forKey:   "runtime")
-        if runtime ==  0 {
+        if runtime > 0 {
             performSegue(withIdentifier: "loginsegue", sender: nil)
         }
         else {

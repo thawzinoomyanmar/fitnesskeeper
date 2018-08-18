@@ -41,14 +41,14 @@ class Activity {
     private var _unit:String = ""
     var unit :String { return _unit }
     private var  _imageURLs:[String]?
-    var imageURLs: [String] { return  _imageURLS}
+    var imageURLs: [String]? { return  _imageURLs}
     
     var duration:TimeInterval  = 0
     var freq:Int = 0
     
     init(id:Int, name:String ,desc:String) {
-        self.id = id
-        self.name = name
+        self._id = id
+        self._name = name
         self.desc = desc
     }
 }
