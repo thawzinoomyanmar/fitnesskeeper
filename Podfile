@@ -7,15 +7,16 @@ target 'fitnesskeeper' do
 
   # Pods for fitnesskeeper
 pod 'Firebase'
-#pod 'paper-onboarding'
+pod 'paper-onboarding'
 pod 'Eureka'
 pod 'Charts'
 pod 'SideMenu'
 pod 'IQKeyboardManagerSwift'
-#pod 'Kingfisher'
+pod 'Kingfisher'
 #pod 'Material'
  pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+pod 'paper-onboarding'
 end
