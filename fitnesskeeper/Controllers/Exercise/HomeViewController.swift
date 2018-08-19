@@ -43,6 +43,36 @@ class HomeViewController: UIViewController {
             let  values = ss.children.allObjects as? [Any]
             for value in (values as! [String:Any]) {
                 print(value)
+                for(k,v) in value {
+                    if let activity = v as?[String:Any]{
+                        let id = activity["id"] as? Int
+                        let duration = activity["duration"] as? String
+                        let desc = activity ["desc"] as? String
+                        let freq = activity ["freq"] as? String
+                        let name = activity ["name"] as? String
+                        let remark = activity ["remark"] as? String
+                        let unit  = activity ["unit"] as? String
+                        let urls: [String]? = activity["urls"] as? [String]
+                        if let id = id , let name = name , let desc = desc , let unit = unit {
+                            let activity = Activity(id: id, name: name, desc:desc , unit: unit)
+                            self.activity .append(activity)
+                            activity.duration = duration
+                            if let freq = freq {
+                                activity.freq = freq
+                                
+                            }
+                            if let remark = remark {b
+                                activity.remark = remark
+                            }
+                            if let urls = urls {
+                                activity.imageURLs = urls
+                                
+                            }
+                            
+                        }
+                    }
+                    
+                }
             }
         }
     }
