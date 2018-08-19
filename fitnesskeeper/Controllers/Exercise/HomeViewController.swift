@@ -30,20 +30,50 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = segmentCtrl
         segmentCtrl.selectedSegmentIndex = 0
         segmentCtrl.addTarget(self, action:  #selector(clickSegment(_:)) , for: .valueChanged)
-        
-        let act = Activity(id: 0, name: "Test", desc: "test")
-       
-        activities.append(act)
+    
         exerciseListCollection.delegate = self
         
         
         let dbRef =  Database.database().reference()
        let activityRef =  dbRef.child("Activities")
         activityRef.observe(.value) { (ss) in
-            let  values = ss.children.allObjects as? [Any]
-            for value in (values as! [String:Any]) {
+            if  let  value = ss.value as? [String:Any] {
                 print(value)
+                self.activities.removeAll() //***
+                for (k,v) in value  {
+                    
+                    if  let activity = v as? [String:Any] {
+                        let id = activity["id"] as? Int
+                        let duration = TimeInterval ( activity["duration"] as? Int ?? 0 )
+                        let desc =  activity["desc"] as? String
+                        let freq = activity["freq"] as?  Int
+                        let name = activity["name"] as? String
+                        let remark = activity["remark"] as? String
+                        let unit = activity["unit"] as? String
+                        let urls:[String]? =  activity["urls"]  as? [String]
+                        
+                        if let id = id , let name = name , let desc = desc,  let unit = unit  {
+                            let activity = Activity(id: id, name: name, desc: desc, unit: unit)
+                            self.activities.append(activity)
+                            activity.duration = duration
+                            
+                            if let freq = freq {
+                                activity.freq = freq
+                            }
+                            if let remark = remark {
+                                activity.remark = remark
+                            }
+                            
+                            if let urls = urls {
+                                activity.imageURLs = urls 
+                            }
+                            
+                        }
+                    }
+                }
+                self.exerciseListCollection.reloadData()
             }
+ 
         }
     }
     
