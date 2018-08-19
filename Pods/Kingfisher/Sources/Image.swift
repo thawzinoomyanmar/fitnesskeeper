@@ -206,7 +206,11 @@ extension Kingfisher where Base: Image {
 
 // MARK: - Create images from data
 extension Kingfisher where Base: Image {
+<<<<<<< HEAD
     static func animated(with data: Data, scale: CGFloat = 1.0, duration: TimeInterval = 0.0, preloadAll: Bool, onlyFirstFrame: Bool = false) -> Image? {
+=======
+    public static func animated(with data: Data, scale: CGFloat = 1.0, duration: TimeInterval = 0.0, preloadAll: Bool, onlyFirstFrame: Bool = false) -> Image? {
+>>>>>>> 12082018_Thawzinoo
         
         func decode(from imageSource: CGImageSource, for options: NSDictionary) -> ([Image], TimeInterval)? {
             
@@ -293,7 +297,11 @@ extension Kingfisher where Base: Image {
         #endif
     }
 
+<<<<<<< HEAD
     static func image(data: Data, scale: CGFloat, preloadAllAnimationData: Bool, onlyFirstFrame: Bool) -> Image? {
+=======
+    public static func image(data: Data, scale: CGFloat, preloadAllAnimationData: Bool, onlyFirstFrame: Bool) -> Image? {
+>>>>>>> 12082018_Thawzinoo
         var image: Image?
 
         #if os(macOS)
@@ -708,11 +716,19 @@ extension Kingfisher where Base: Image {
 
 // MARK: - Decode
 extension Kingfisher where Base: Image {
+<<<<<<< HEAD
     var decoded: Image {
         return decoded(scale: scale)
     }
     
     func decoded(scale: CGFloat) -> Image {
+=======
+    public var decoded: Image {
+        return decoded(scale: scale)
+    }
+    
+    public func decoded(scale: CGFloat) -> Image {
+>>>>>>> 12082018_Thawzinoo
         // prevent animated image (GIF) lose it's images
         #if os(iOS)
             if imageSource != nil { return base }
@@ -756,7 +772,11 @@ private struct ImageHeaderData {
     static var GIF: [UInt8] = [0x47, 0x49, 0x46]
 }
 
+<<<<<<< HEAD
 enum ImageFormat {
+=======
+public enum ImageFormat {
+>>>>>>> 12082018_Thawzinoo
     case unknown, PNG, JPEG, GIF
 }
 
@@ -777,7 +797,11 @@ extension Data: KingfisherCompatible {
 }
 
 extension DataProxy {
+<<<<<<< HEAD
     var imageFormat: ImageFormat {
+=======
+    public var imageFormat: ImageFormat {
+>>>>>>> 12082018_Thawzinoo
         var buffer = [UInt8](repeating: 0, count: 8)
         (base as NSData).getBytes(&buffer, length: 8)
         if buffer == ImageHeaderData.PNG {
@@ -813,14 +837,34 @@ extension CGSize: KingfisherCompatible {
 }
 
 extension CGSizeProxy {
+<<<<<<< HEAD
     func constrained(_ size: CGSize) -> CGSize {
+=======
+    
+    public func resize(to size: CGSize, for contentMode: ContentMode) -> CGSize {
+        switch contentMode {
+        case .aspectFit:
+            return constrained(size)
+        case .aspectFill:
+            return filling(size)
+        default:
+            return self.base
+        }
+    }
+    
+    public func constrained(_ size: CGSize) -> CGSize {
+>>>>>>> 12082018_Thawzinoo
         let aspectWidth = round(aspectRatio * size.height)
         let aspectHeight = round(size.width / aspectRatio)
 
         return aspectWidth > size.width ? CGSize(width: size.width, height: aspectHeight) : CGSize(width: aspectWidth, height: size.height)
     }
 
+<<<<<<< HEAD
     func filling(_ size: CGSize) -> CGSize {
+=======
+    public func filling(_ size: CGSize) -> CGSize {
+>>>>>>> 12082018_Thawzinoo
         let aspectWidth = round(aspectRatio * size.height)
         let aspectHeight = round(size.width / aspectRatio)
 
@@ -832,7 +876,11 @@ extension CGSizeProxy {
     }
     
     
+<<<<<<< HEAD
     func constrainedRect(for size: CGSize, anchor: CGPoint) -> CGRect {
+=======
+    public func constrainedRect(for size: CGSize, anchor: CGPoint) -> CGRect {
+>>>>>>> 12082018_Thawzinoo
         
         let unifiedAnchor = CGPoint(x: anchor.x.clamped(to: 0.0...1.0),
                                     y: anchor.y.clamped(to: 0.0...1.0))
