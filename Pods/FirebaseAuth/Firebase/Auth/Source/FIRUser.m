@@ -766,7 +766,7 @@ static void callInMainThreadWithAuthDataResultAndError(
         callInMainThreadWithAuthDataResultAndError(completion, authResult, error);
         return;
       }
-      if (![authResult.user.uid isEqual:[self->_auth getUserID]]) {
+      if (![authResult.user.uid isEqual:[self->_auth getUID]]) {
         callInMainThreadWithAuthDataResultAndError(completion, authResult,
                                                    [FIRAuthErrorUtils userMismatchError]);
         return;
@@ -851,16 +851,8 @@ static void callInMainThreadWithAuthDataResultAndError(
         "error" out parameter.
  */
 - (FIRAuthTokenResult *)parseIDToken:(NSString *)token error:(NSError **)error {
-  // Though this is an internal method, errors returned here are surfaced in user-visible
-  // callbacks.
   *error = nil;
   NSArray *tokenStringArray = [token componentsSeparatedByString:@"."];
-
-  // The JWT should have three parts, though we only use the second in this method.
-  if (tokenStringArray.count != 3) {
-    *error = [FIRAuthErrorUtils malformedJWTErrorWithToken:token underlyingError:nil];
-    return nil;
-  }
 
   // The token payload is always the second index of the array.
   NSString *idToken = tokenStringArray[1];
@@ -871,10 +863,8 @@ static void callInMainThreadWithAuthDataResultAndError(
       [[idToken stringByReplacingOccurrencesOfString:@"_" withString:@"/"] mutableCopy];
 
   // Replace "-" with "+"
-  [tokenPayload replaceOccurrencesOfString:@"-"
-                                withString:@"+"
-                                   options:kNilOptions
-                                     range:NSMakeRange(0, tokenPayload.length)];
+  tokenPayload =
+      [[tokenPayload stringByReplacingOccurrencesOfString:@"-" withString:@"+"] mutableCopy];
 
   // Pad the token payload with "=" signs if the payload's length is not a multiple of 4.
   while ((tokenPayload.length % 4) != 0) {
@@ -884,22 +874,19 @@ static void callInMainThreadWithAuthDataResultAndError(
       [[NSData alloc] initWithBase64EncodedString:tokenPayload
                                           options:NSDataBase64DecodingIgnoreUnknownCharacters];
   if (!decodedTokenPayloadData) {
-    *error = [FIRAuthErrorUtils malformedJWTErrorWithToken:token underlyingError:nil];
+    *error = [FIRAuthErrorUtils unexpectedResponseWithDeserializedResponse:token];
     return nil;
   }
-  NSError *jsonError = nil;
-  NSJSONReadingOptions options = NSJSONReadingMutableContainers|NSJSONReadingAllowFragments;
   NSDictionary *tokenPayloadDictionary =
       [NSJSONSerialization JSONObjectWithData:decodedTokenPayloadData
-                                      options:options
-                                        error:&jsonError];
-  if (jsonError != nil) {
-    *error = [FIRAuthErrorUtils malformedJWTErrorWithToken:token underlyingError:jsonError];
+                                      options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments
+                                        error:error];
+  if (*error) {
     return nil;
   }
 
   if (!tokenPayloadDictionary) {
-    *error = [FIRAuthErrorUtils malformedJWTErrorWithToken:token underlyingError:nil];
+    *error = [FIRAuthErrorUtils unexpectedResponseWithDeserializedResponse:token];
     return nil;
   }
 

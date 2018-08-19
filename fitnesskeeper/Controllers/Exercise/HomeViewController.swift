@@ -8,22 +8,14 @@
 
 import UIKit
 import Firebase
+<<<<<<< HEAD
 import FirebaseStorage
+=======
+
+>>>>>>> MAHDevInputFitness
 class HomeViewController: UIViewController {
-    var exercistLists = [
-        ["photo":"photo1.png","name":"Skiing"],
-        ["photo":"photo1.png","name":"Skiing"],
-        ["photo":"photo1.png","name":"Skiing"],
-        ["photo":"photo1.png","name":"Skiing"],
-        ["photo":"photo1.png","name":"Skiing"],
-        ["photo":"photo1.png","name":"Running"],
-        ["photo":"photo1.png","name":"Running"],
-        ["photo":"photo1.png","name":"Running"],
-        ["photo":"photo1.png","name":"Running"],
-        ["photo":"photo1.png","name":"Running"],
-        ["photo":"photo1.png","name":"Running"],
-        ["photo":"photo1.png","name":"Running"],
-    ]
+    var activities = [Activity]()
+    
     @IBOutlet weak var exerciseListCollection: UICollectionView!
     
     
@@ -60,12 +52,31 @@ class HomeViewController: UIViewController {
         self.navigationItem.titleView = segmentCtrl
         segmentCtrl.selectedSegmentIndex = 0
         segmentCtrl.addTarget(self, action:  #selector(clickSegment(_:)) , for: .valueChanged)
+        
+        let act = Activity(id: 0, name: "Test", desc: "test")
+       
+        activities.append(act)
+        exerciseListCollection.delegate = self
+        
+        
+        let dbRef =  Database.database().reference()
+       let activityRef =  dbRef.child("Activities")
+        activityRef.observe(.value) { (ss) in
+            let  values = ss.children.allObjects as? [Any]
+            for value in (values as! [String:Any]) {
+                print(value)
+            }
+        }
     }
+    
+    
     @objc func clickSegment(_ segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
         } else {
             
         }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,16 +87,15 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return exercistLists.count
+        return activities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = exerciseListCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ExerciseListsCollectionViewCell
-      let index =   exercistLists[indexPath.row]
-        cell?.exerciselbl.text = index["name"]
-        cell?.exerciseImage.image = UIImage(named: index["photo"]!)
+      let index =   activities[indexPath.row]
+        
         
         return cell!
         
@@ -102,6 +112,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
 }
+
+
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -109,3 +121,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+          let exerciseInfoVC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)  
+        exerciseInfoVC.activity = activities [ indexPath.row] 
+            navigationController?.pushViewController(exerciseInfoVC, animated: true)
+     
+    }
+}

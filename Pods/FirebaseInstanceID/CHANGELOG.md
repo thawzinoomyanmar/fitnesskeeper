@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 2018-08-14 -- v3.2.1
 - Fixed an issue that checkin is not cached properly when app first started. (#1561)
 
@@ -7,6 +8,8 @@
 - Fixed an issue that InstanceID doesn't compile in app extensions, allowing its
 dependents like remote config to be working inside the app extensions.
 
+=======
+>>>>>>> MAHDevInputFitness
 # 2018-06-19 -- v3.1.1
 - Ensure the checkin and tokens are refreshed if firebase project changed.
 - Fixed an issue that checkin should be turned off when FCM's autoInitEnabled flag is off.
