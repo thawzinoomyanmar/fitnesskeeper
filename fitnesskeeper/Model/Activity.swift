@@ -40,16 +40,18 @@ class Activity {
     var desc:String
     private var _unit:String = ""
     var unit :String { return _unit }
-    private var  _imageURLs:[String]?
-    var imageURLs: [String]? { return  _imageURLs}
+    var   imageURLs:[String]?
+    
     
     var duration:TimeInterval  = 0
     var freq:Int = 0
+    var remark = ""
     
-    init(id:Int, name:String ,desc:String) {
+    init(id:Int, name:String ,desc:String, unit:String ) {
         self._id = id
         self._name = name
         self.desc = desc
+        self._unit = unit
     }
 }
 
