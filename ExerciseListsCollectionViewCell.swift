@@ -23,9 +23,34 @@
   ------------------------------------------------------------------------------*/
 
 import UIKit
+import Kingfisher
+
 
 class ExerciseListsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var exerciseImage: UIImageView!
     
     @IBOutlet weak var exerciselbl: UILabel!
+    
+    func config(_ activity:Activity) {
+        self.backgroundColor =  Default.cellBkColor
+        exerciselbl.text =  activity.name
+        if let firstImageStr =  activity.imageURLs?.first, firstImageStr != ""  {
+            exerciseImage.kf.indicatorType = .activity
+            exerciseImage.kf.setImage(with: URL(string:firstImageStr))
+            
+        }
+        
+        if let imageURLs = activity.imageURLs {
+            for imgURL in imageURLs where imgURL != "" {
+                do {
+                  let imgData = try Data.init(contentsOf:URL(string:  imgURL)!)
+                    exerciseImage.animationImages?.append(UIImage(data: imgData)!)
+                    exerciseImage.startAnimating()
+                } catch   {
+                        
+                    }
+            }
+        }
+        
+    }
 }
