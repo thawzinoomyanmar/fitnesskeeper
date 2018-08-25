@@ -37,19 +37,12 @@ class ExerciseListsCollectionViewCell: UICollectionViewCell {
         if let firstImageStr =  activity.imageURLs?.first, firstImageStr != ""  {
             exerciseImage.kf.indicatorType = .activity
             exerciseImage.kf.setImage(with: URL(string:firstImageStr))
-            
         }
         
-        if let imageURLs = activity.imageURLs {
-            for imgURL in imageURLs where imgURL != "" {
-                do {
-                  let imgData = try Data.init(contentsOf:URL(string:  imgURL)!)
-                    exerciseImage.animationImages?.append(UIImage(data: imgData)!)
-                    exerciseImage.startAnimating()
-                } catch   {
-                        
-                    }
-            }
+        if let imageURLs = activity.imageURLs, let firstImageStr = imageURLs.first {
+            let url = URL(string: firstImageStr)
+            exerciseImage.kf.indicatorType = .activity
+             exerciseImage.kf.setImage(with: url)
         }
         
     }
