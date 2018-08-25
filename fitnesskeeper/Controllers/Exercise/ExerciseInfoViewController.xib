@@ -23,7 +23,12 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2w-LE-JLl">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Op2-nC-nga">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8y-6B-P4y">
+                            <rect key="frame" x="8" y="307" width="347" height="253"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Op2-nC-nga" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="aZH-4m-M3l">
@@ -38,48 +43,22 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Activity description" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQG-Ju-aGC">
-                                    <rect key="frame" x="20" y="350.5" width="335" height="301.5"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="Activity description" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQG-Ju-aGC">
+                                    <rect key="frame" x="20" y="322" width="335" height="301.5"/>
                                     <color key="backgroundColor" red="0.1689281775" green="0.2139324215" blue="0.28156725890000001" alpha="0.75090967470000003" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gu9-rH-qkV" customClass="Button" customModule="fitnesskeeper" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="662" width="335" height="48"/>
-                                    <color key="backgroundColor" red="0.49645643070000001" green="0.98903244729999995" blue="0.49513766809999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="48" id="kyt-lM-vRv"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
-                                    <state key="normal" title="Button ">
-                                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="20"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                            <integer key="value" value="2"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.91942393769999997" green="1" blue="0.97805390059999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.1334631741" green="0.1823148429" blue="0.25190103050000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="aZH-4m-M3l" firstAttribute="top" secondItem="Op2-nC-nga" secondAttribute="top" constant="20" id="2KI-m8-kmC"/>
                                 <constraint firstItem="GDy-vk-kIv" firstAttribute="leading" secondItem="aZH-4m-M3l" secondAttribute="leading" id="GOF-G1-k9X"/>
-                                <constraint firstAttribute="trailing" secondItem="Gu9-rH-qkV" secondAttribute="trailing" constant="20" id="GeV-SO-Edb"/>
                                 <constraint firstItem="cQG-Ju-aGC" firstAttribute="leading" secondItem="Op2-nC-nga" secondAttribute="leading" constant="20" id="KCQ-3a-dUV"/>
                                 <constraint firstItem="cQG-Ju-aGC" firstAttribute="top" secondItem="GDy-vk-kIv" secondAttribute="bottom" constant="15" id="KcX-Bv-bg0"/>
-                                <constraint firstItem="Gu9-rH-qkV" firstAttribute="top" secondItem="cQG-Ju-aGC" secondAttribute="bottom" constant="10" id="P7b-1H-2P5"/>
                                 <constraint firstAttribute="trailing" secondItem="cQG-Ju-aGC" secondAttribute="trailing" constant="20" id="Vkf-KQ-uox"/>
-                                <constraint firstItem="Gu9-rH-qkV" firstAttribute="leading" secondItem="Op2-nC-nga" secondAttribute="leading" constant="20" id="ZMm-Hp-eL6"/>
                                 <constraint firstAttribute="trailing" secondItem="aZH-4m-M3l" secondAttribute="trailing" constant="20" id="drq-5c-aqh"/>
-                                <constraint firstAttribute="bottom" secondItem="Gu9-rH-qkV" secondAttribute="bottom" constant="40" id="g3b-EB-ywz"/>
                                 <constraint firstItem="aZH-4m-M3l" firstAttribute="leading" secondItem="Op2-nC-nga" secondAttribute="leading" constant="20" id="ky1-FH-k98"/>
                                 <constraint firstAttribute="height" constant="750" id="lLU-f3-xm2"/>
                                 <constraint firstItem="GDy-vk-kIv" firstAttribute="trailing" secondItem="aZH-4m-M3l" secondAttribute="trailing" id="qgk-PG-TGW"/>
@@ -105,6 +84,7 @@
                 <constraint firstItem="P2w-LE-JLl" firstAttribute="top" secondItem="cyY-m9-7wn" secondAttribute="top" id="yTh-Yl-bN0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="cyY-m9-7wn"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
     <resources>

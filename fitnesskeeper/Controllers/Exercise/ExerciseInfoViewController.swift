@@ -23,9 +23,11 @@
   ------------------------------------------------------------------------------*/
 
 import UIKit
-
+import Kingfisher
 class ExerciseInfoViewController: UIViewController {
-
+    @IBOutlet weak var exerciseImageView: UIImageView!
+    @IBOutlet weak var exercisetitle:UILabel!
+    @IBOutlet weak var exerciseDescTextView:UITextView! 
     var activity:Activity! //will allocate later , given by other 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,10 @@ class ExerciseInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func addActivity(_sender:UIButton){
+        let addActivityVC = AddNewAcitivityViewController(nibName:"AddNewActivityViewController",bundle:nil)
+        addActivityVC.activity = activity
+    }
     /*
     // MARK: - Navigation
 

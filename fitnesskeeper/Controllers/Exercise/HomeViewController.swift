@@ -123,6 +123,7 @@ extension HomeViewController:  UICollectionViewDataSource {
     //    self.present(myViewController, animated: true, completion: nil)
    //  let VC =    self.storyboard?.instantiateViewController(withIdentifier: "info") as! ExerciseInfoViewController
 //        let VC:ExerciseInfoViewController = UIViewController(nibName: "ExerciseInfoViewController", bundle: nil) as! ExerciseInfoViewController
+     
         navigationController?.pushViewController(VC, animated: true)
    //     self.present(VC,animated: true,completion: nil)
     }

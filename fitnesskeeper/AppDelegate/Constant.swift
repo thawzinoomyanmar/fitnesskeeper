@@ -27,6 +27,7 @@ import UIKit
 
 struct Default {
     static var cellBkColor = UIColor.white
-    static var tabarColor = UIColor.green
-    static var segmentTintColor  = UIColor.purple
+    static var tabarColor = UIColor.black
+    static var segmentTintColor  = UIColor.orange
+    
 }
