@@ -12,6 +12,8 @@
 		CE4325EC211F4A8D00400FE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */; };
 		EA5F8B9F21282E070090D264 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F8B9E21282E060090D264 /* Button.swift */; };
 		EA5F8BA121282E2E0090D264 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F8BA021282E2E0090D264 /* Activity.swift */; };
+		EAA317C82131683E00A2738C /* AddNewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA317C62131683E00A2738C /* AddNewActivityViewController.swift */; };
+		EAA317C92131683E00A2738C /* AddNewActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAA317C72131683E00A2738C /* AddNewActivityViewController.xib */; };
 		EABE1A0D211EF0B9003EE6DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */; };
 		EABE1A14211EF0BA003EE6DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EABE1A13211EF0BA003EE6DD /* Assets.xcassets */; };
 		EABE1A17211EF0BA003EE6DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EABE1A15211EF0BA003EE6DD /* LaunchScreen.storyboard */; };
@@ -36,6 +38,8 @@
 		CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA5F8B9E21282E060090D264 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		EA5F8BA021282E2E0090D264 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		EAA317C62131683E00A2738C /* AddNewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewActivityViewController.swift; sourceTree = "<group>"; };
+		EAA317C72131683E00A2738C /* AddNewActivityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewActivityViewController.xib; sourceTree = "<group>"; };
 		EABE1A09211EF0B9003EE6DD /* fitnesskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnesskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EABE1A13211EF0BA003EE6DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				EABE1A35211EF35D003EE6DD /* UserExerciseInfoViewController.swift */,
 				EAEA8B77212988F900294BB2 /* ExerciseInfoViewController.swift */,
 				EAEA8B78212988FA00294BB2 /* ExerciseInfoViewController.xib */,
+				EAA317C62131683E00A2738C /* AddNewActivityViewController.swift */,
+				EAA317C72131683E00A2738C /* AddNewActivityViewController.xib */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAA317C92131683E00A2738C /* AddNewActivityViewController.xib in Resources */,
 				EABE1A17211EF0BA003EE6DD /* LaunchScreen.storyboard in Resources */,
 				EABE1A14211EF0BA003EE6DD /* Assets.xcassets in Resources */,
 				CE4325EC211F4A8D00400FE5 /* GoogleService-Info.plist in Resources */,
@@ -370,6 +377,7 @@
 				EA5F8BA121282E2E0090D264 /* Activity.swift in Sources */,
 				EABE1A2A211EF2AD003EE6DD /* SplashViewController.swift in Sources */,
 				EAEA8B7C21298AE200294BB2 /* Constant.swift in Sources */,
+				EAA317C82131683E00A2738C /* AddNewActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

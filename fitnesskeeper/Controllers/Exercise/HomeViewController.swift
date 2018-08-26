@@ -56,10 +56,11 @@ class HomeViewController: UIViewController {
                         let freq = activity["freq"] as?  Int
                         let name = activity["name"] as? String
                         let remark = activity["remark"] as? String
-                        let unit = activity["unit"] as? String
-                        let urls:[String]? =  activity["urls"]  as? [String]
+                        let unit = ( activity["unit"] as? [String] ) ?? [""]
+                       let urls:[String]? =  activity["urls"]  as? [String]
+                        let reps:Int? = activity["reps"] as? Int
                         
-                        if let id = id , let name = name , let desc = desc,  let unit = unit  {
+                        if let id = id , let name = name , let desc = desc {
                             let activity = Activity(id: id, name: name, desc: desc, unit: unit)
                             self.activities.append(activity)
                             activity.duration = duration
@@ -74,6 +75,8 @@ class HomeViewController: UIViewController {
                             if let urls = urls {
                                 activity.imageURLs = urls 
                             }
+                            
+                            activity.reps = reps 
                             
                         }
                     }
@@ -119,12 +122,11 @@ extension HomeViewController:  UICollectionViewDataSource {
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let VC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
-    //    self.present(myViewController, animated: true, completion: nil)
-   //  let VC =    self.storyboard?.instantiateViewController(withIdentifier: "info") as! ExerciseInfoViewController
-//        let VC:ExerciseInfoViewController = UIViewController(nibName: "ExerciseInfoViewController", bundle: nil) as! ExerciseInfoViewController
-        navigationController?.pushViewController(VC, animated: true)
-   //     self.present(VC,animated: true,completion: nil)
+        
+        let exerciseInfoVC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
+        exerciseInfoVC.activity = activities[indexPath.row] //**
+        navigationController?.pushViewController(exerciseInfoVC, animated: true)
+   
     }
     
     
