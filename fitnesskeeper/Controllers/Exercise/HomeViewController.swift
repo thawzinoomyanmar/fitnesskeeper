@@ -52,6 +52,7 @@ class HomeViewController: UIViewController {
                     if  let activity = v as? [String:Any] {
                         let id = activity["id"] as? Int
                         let duration = TimeInterval ( activity["duration"] as? Int ?? 0 )
+                         let hasSC:Bool = activity["hasSC"] as? Bool ?? false
                         let desc =  activity["desc"] as? String
                         let freq = activity["freq"] as?  Int
                         let name = activity["name"] as? String
@@ -59,8 +60,10 @@ class HomeViewController: UIViewController {
                         let unit = ( activity["unit"] as? [String] ) ?? [""]
                        let urls:[String]? =  activity["urls"]  as? [String]
                         let reps:Int? = activity["reps"] as? Int
+                         let distance:Float? = activity["distance"] as? Float
+                         let parentID:Int? = activity["parentid"] as? Int
                         
-                        if let id = id , let name = name , let desc = desc {
+                        if let id = id , let name = name , let desc = desc, parentID == nil  {
                             let activity = Activity(id: id, name: name, desc: desc, unit: unit)
                             self.activities.append(activity)
                             activity.duration = duration
@@ -77,7 +80,16 @@ class HomeViewController: UIViewController {
                             }
                             
                             activity.reps = reps 
+                            activity.distance = distance
+                        }
+                        else if let id = id , let name = name , let desc = desc , parentID != nil { //for sub cat
+                            let subactivity = Activity(id: id, name: name, desc: desc, unit: unit)
                             
+                            for parent in self.activities {
+                                if parent.id    == parentID {
+                                    parent.subActivities.append(subactivity)
+                                }
+                            }
                         }
                     }
                 }
@@ -123,9 +135,18 @@ extension HomeViewController:  UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let exerciseInfoVC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
-        exerciseInfoVC.activity = activities[indexPath.row] //**
-        navigationController?.pushViewController(exerciseInfoVC, animated: true)
+        
+        let currentActivity = activities[indexPath.row] //**
+        if  currentActivity.subActivities.count > 0 {
+            print("Hey SPY load the sub activities")
+        }
+        else {   let exerciseInfoVC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
+        exerciseInfoVC.activity = currentActivity
+            navigationController?.pushViewController(exerciseInfoVC, animated: true)
+        }
+        
+        
+        
    
     }
     

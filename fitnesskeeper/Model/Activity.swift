@@ -28,6 +28,21 @@
  "unit" : "m",
  "urls" : [ "firebasestorage.googleapis.com", "" ]*/
 import Foundation
+import Firebase
+
+class FirebaseManager {
+    static var main =  FirebaseManager( )
+  
+ 
+    func save(_ activity:Activity, forUserId:String  ) {
+        let currentTime =  Date().timeIntervalSince1970 ?? 0.0
+        let dbRef =  Database.database().reference()
+        let userActivityDbRef = dbRef.child(forUserId).child("Activity")
+        let newRecordID = userActivityDbRef.childByAutoId()
+        newRecordID.setValue(["id": activity.id , "duration": activity.duration, "freq": activity.freq, "unit": activity.unit ,"distance": activity.distance!,"date": currentTime  ])
+    }
+}
+
 
 class Activity {
     private var _id:Int
@@ -38,14 +53,14 @@ class Activity {
     var name:String { return _name }
     
     var reps:Int? = nil
-    
+    var subActivities:[Activity] = [Activity]( )
     var desc:String
     private var _unit:[String] =  [String]()
     var units :[String] { return _unit }
     var unit : String = ""
     var   imageURLs:[String]?
     
-    
+    var distance: Float? = 0.0
     var duration:TimeInterval  = 0
     var freq:Int = 0
     var remark = ""
@@ -55,6 +70,11 @@ class Activity {
         self._name = name
         self.desc = desc
         self._unit = unit
+    }
+    
+    //Methods
+    func save(_ uid:String) {
+        FirebaseManager.main.save(self, forUserId: uid)
     }
 }
 
