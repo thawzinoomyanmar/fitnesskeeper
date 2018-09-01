@@ -41,7 +41,8 @@ class Activity {
     
     var desc:String
     private var _unit:[String] =  [String]()
-    var unit :[String] { return _unit }
+    var units :[String] { return _unit }
+    var unit : String = ""
     var   imageURLs:[String]?
     
     
