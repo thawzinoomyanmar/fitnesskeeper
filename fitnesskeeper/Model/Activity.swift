@@ -37,9 +37,12 @@ class Activity {
    private  var _name:String
     var name:String { return _name }
     
+    var reps:Int? = nil
+    
     var desc:String
-    private var _unit:String = ""
-    var unit :String { return _unit }
+    private var _unit:[String] =  [String]()
+    var units :[String] { return _unit }
+    var unit : String = ""
     var   imageURLs:[String]?
     
     
@@ -47,7 +50,7 @@ class Activity {
     var freq:Int = 0
     var remark = ""
     
-    init(id:Int, name:String ,desc:String, unit:String ) {
+    init(id:Int, name:String ,desc:String, unit:[String] ) {
         self._id = id
         self._name = name
         self.desc = desc
