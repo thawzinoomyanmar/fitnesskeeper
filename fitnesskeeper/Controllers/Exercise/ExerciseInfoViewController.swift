@@ -23,19 +23,50 @@
   ------------------------------------------------------------------------------*/
 
 import UIKit
-
+import Kingfisher
 class ExerciseInfoViewController: UIViewController {
 
+    var activity:Activity! //will allocate later , given by other
+    
+    
+    @IBOutlet weak var exerciseImageView: UIImageView!
+    
+    @IBOutlet weak var execiseTitle: UILabel!
+    
+    @IBOutlet weak var exerciseDescTextView: UITextView!
+    
+    
+    @IBAction func addActivity(_ sender:UIButton) {
+       
+        let addActivityVC = AddNewActivityViewController(nibName: "AddNewActivityViewController", bundle: nil)
+        addActivityVC.activity =  activity
+        
+//        navigationController?.viewControllers.first?.present(addActivityVC, animated: true, completion: {
+//                    self.navigationController?.popViewController(animated: false )
+//        })
+        
+         navigationController?.pushViewController(addActivityVC, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        execiseTitle.text = activity.name
+        exerciseDescTextView.text = activity.desc
+        
+        
+        if let imageURLs = activity.imageURLs , let firstImageStr =  imageURLs.first {
+            let url =     URL(string:  firstImageStr)!
+            exerciseImageView.kf.indicatorType =  .activity
+            exerciseImageView.kf.setImage(with: url)
+        }
+        
+       
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
 
     /*

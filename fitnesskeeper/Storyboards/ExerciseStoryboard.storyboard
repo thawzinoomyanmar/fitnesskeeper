@@ -35,11 +35,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="photo1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ima-Rp-PUc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="159.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ima-Rp-PUc">
+                                                    <rect key="frame" x="10" y="10" width="160" height="124.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNH-mQ-tii">
-                                                    <rect key="frame" x="0.0" y="159.5" width="180" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="144.5" width="180" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -47,12 +47,12 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Ima-Rp-PUc" secondAttribute="trailing" id="7yy-LQ-Cf6"/>
-                                            <constraint firstItem="Ima-Rp-PUc" firstAttribute="top" secondItem="IgE-7M-MD9" secondAttribute="top" id="AdY-Xg-g1C"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ima-Rp-PUc" secondAttribute="trailing" constant="10" id="7yy-LQ-Cf6"/>
+                                            <constraint firstItem="Ima-Rp-PUc" firstAttribute="top" secondItem="IgE-7M-MD9" secondAttribute="top" constant="10" id="AdY-Xg-g1C"/>
                                             <constraint firstItem="PNH-mQ-tii" firstAttribute="leading" secondItem="IgE-7M-MD9" secondAttribute="leading" id="TPw-F9-A5i"/>
-                                            <constraint firstItem="PNH-mQ-tii" firstAttribute="top" secondItem="Ima-Rp-PUc" secondAttribute="bottom" id="aqT-VE-nLH"/>
-                                            <constraint firstAttribute="bottom" secondItem="PNH-mQ-tii" secondAttribute="bottom" id="icf-Px-CqI"/>
-                                            <constraint firstItem="Ima-Rp-PUc" firstAttribute="leading" secondItem="IgE-7M-MD9" secondAttribute="leading" id="qNB-rQ-SNf"/>
+                                            <constraint firstItem="PNH-mQ-tii" firstAttribute="top" secondItem="Ima-Rp-PUc" secondAttribute="bottom" constant="10" id="aqT-VE-nLH"/>
+                                            <constraint firstAttribute="bottom" secondItem="PNH-mQ-tii" secondAttribute="bottom" constant="15" id="icf-Px-CqI"/>
+                                            <constraint firstItem="Ima-Rp-PUc" firstAttribute="leading" secondItem="IgE-7M-MD9" secondAttribute="leading" constant="10" id="qNB-rQ-SNf"/>
                                             <constraint firstAttribute="trailing" secondItem="PNH-mQ-tii" secondAttribute="trailing" id="yvV-Pd-QNG"/>
                                         </constraints>
                                         <connections>
@@ -121,6 +121,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="photo1.png" width="246" height="370"/>
+        <image name="logo" width="2480" height="2480"/>
     </resources>
 </document>
