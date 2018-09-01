@@ -41,11 +41,11 @@ class ExerciseInfoViewController: UIViewController {
         let addActivityVC = AddNewActivityViewController(nibName: "AddNewActivityViewController", bundle: nil)
         addActivityVC.activity =  activity
         
-        navigationController?.viewControllers.first?.present(addActivityVC, animated: true, completion: {
-                    self.navigationController?.popViewController(animated: false )
-        })
+//        navigationController?.viewControllers.first?.present(addActivityVC, animated: true, completion: {
+//                    self.navigationController?.popViewController(animated: false )
+//        })
         
-        //navigationController?.pushViewController(addActivityVC, animated: true)
+         navigationController?.pushViewController(addActivityVC, animated: true)
     }
     
     override func viewDidLoad() {

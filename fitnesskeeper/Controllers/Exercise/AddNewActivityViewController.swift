@@ -40,52 +40,79 @@ import Eureka
 class AddNewActivityViewController: FormViewController {
     
     var activity:Activity!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         
+         setup( )
+       constructInputForm( )
+        // Do any additional setup after loading the view.
+    }
+    
+    func setup() {
+        let rightSaveBtn = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
+        navigationItem.setRightBarButton(rightSaveBtn, animated: false)
+    }
+    
+    
+    func constructInputForm( ) {
         form
-            +++  Section("")
+            +++  Section()
             
             <<< LabelRow() { row in
                 row.title = "Activity Name"
                 row.value = activity.name
             }
-        
-            <<< CountDownInlineRow(){  row in
-                row.title = "Duration"
-        }
-        
-        <<< PickerInlineRow<Int>(){ row in
-            row.options  =  [1 ,2,3,4,5,6,7,8,9,10]
-            row.title = "Times"
-        }
             
+            <<< PickerInlineRow<Int>("Duration"){ row in
+                row.options  =  [1 ,2,3,4,5,6,7,8,9,10]
+                row.title = "Duration"
+            }
+            
+            <<< PickerInlineRow<Int>("times"){ row in
+                row.options  =  [1 ,2,3,4,5,6,7,8,9,10]
+                row.title = "Times"
+        }
+        
         if let rep = activity.reps {
-           form.allSections.first! <<<  PickerInlineRow<Int>(){ row in
+            form.allSections.first! <<<  PickerInlineRow<Int>("reps"){ row in
                 row.options  =  [1 ,2,3,4,5,6,7,8,9,10]
                 row.title = "Reps"
             }
         }
-            
-        form.allSections.first! <<< PickerInlineRow<String>(){ row in
-                row.options  =   activity.unit 
-                row.title = "Unit"
-                row.value = activity.unit.first ?? ""
-            }
-            
-             form.allSections.first!  <<< TextAreaRow  ( "remark") { row in
-                row.placeholder = "Note here"
+        
+        form.allSections.first! <<< PickerInlineRow<String>("unit"){ row in
+            row.options  =   activity.units
+            row.title = "Unit"
+            row.value = activity.units.first ?? ""
         }
         
-        
-        
-        // Do any additional setup after loading the view.
+        form.allSections.first!  <<< TextAreaRow  ( "remark") { row in
+            row.placeholder = "Note here"
+        }
     }
 
-    @IBAction func save(_ sender: UIBarButtonItem) {
+    @objc func save( ) {
+        let values =  form.values()
+        //check for non optional fields , duration / times
+        guard let duration =  values["Duration"] as? Int else  {
+            return
+        }
+        guard let times =  values["times"] as? Int, times > 0 else {
+            return
+        }
+        let reps =  values["reps"] as? Int
+        let unit =  values["units"] as? String
+        let remark = values["remark"] as? String
         
-            self.dismiss(animated: true, completion: nil)
+        activity.duration = TimeInterval( duration ) ?? 0
+         activity.reps =  reps
+        activity.remark = remark ?? ""
+        activity.freq = times ?? 0
+        activity.unit = unit ?? ""
+        
+          //  self.navigationController?.popViewController(animated: true )
+            //self.dismiss(animated: true, completion: nil)
     }
     
     
