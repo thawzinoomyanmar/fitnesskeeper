@@ -43,6 +43,7 @@ class AddNewActivityViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< Updated upstream
 
          setup( )
        constructInputForm( )
@@ -56,6 +57,13 @@ class AddNewActivityViewController: FormViewController {
     
     
     func constructInputForm( ) {
+=======
+        setup()
+        constructInputForm() }
+    func constructInputForm()
+    {
+         
+>>>>>>> Stashed changes
         form
             +++  Section()
             
@@ -80,12 +88,27 @@ class AddNewActivityViewController: FormViewController {
                 row.title = "Reps"
             }
         }
+<<<<<<< Updated upstream
         
         form.allSections.first! <<< PickerInlineRow<String>("unit"){ row in
             row.options  =   activity.units
             row.title = "Unit"
             row.value = activity.units.first ?? ""
         }
+=======
+            
+        form.allSections.first! <<< PickerInlineRow<String>(){ row in
+                row.options  =   activity.unit 
+                row.title = "Unit"
+                row.value = activity.unit.first ?? ""
+            }
+            
+             form.allSections.first!  <<< TextAreaRow  ( "remark") { row in
+                row.placeholder = "Note here"
+        }
+        
+       
+>>>>>>> Stashed changes
         
         form.allSections.first!  <<< TextAreaRow  ( "remark") { row in
             row.placeholder = "Note here"
