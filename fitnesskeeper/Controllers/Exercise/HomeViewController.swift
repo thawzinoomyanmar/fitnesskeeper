@@ -11,6 +11,7 @@ import Firebase
 
 class HomeViewController: UIViewController {
     var activities = [Activity]()
+    var sub_activities = [Activity]()
     var activitiyCellWidth:CGFloat = 0
      var activitiyCellHeight :CGFloat = 0
     var hGap:CGFloat = 2
@@ -45,7 +46,6 @@ class HomeViewController: UIViewController {
        let activityRef =  dbRef.child("Activities")
         activityRef.observe(.value) { (ss) in
             if  let  value = ss.value as? [String:Any] {
-                print(value)
                 self.activities.removeAll() //***
                 for (k,v) in value  {
                     
@@ -122,34 +122,49 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if  sub_activities.count > 0 {
+         return   sub_activities.count
+        }
         return activities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = exerciseListCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ExerciseListsCollectionViewCell
-      let currentActivity =   activities[indexPath.row]
+     
+         if  sub_activities.count > 0 {
+             cell?.config(sub_activities[indexPath.row] )
+         }else{
+             let currentActivity =   activities[indexPath.row]
+            cell?.config(currentActivity )
+        }
        
-        cell?.config(currentActivity )
         return cell!
         
     }
+    func config(ary:[Activity]){
+        sub_activities = ary
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         
         let currentActivity = activities[indexPath.row] //**
         if  currentActivity.subActivities.count > 0 {
             print("Hey SPY load the sub activities")
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+                else {
+                print("View controller  not found")
+                return
+            }
+            
+            vc.config(ary:currentActivity.subActivities)
+            navigationController?.pushViewController(vc, animated: true)
+            
         }
-        else {   let exerciseInfoVC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
+        else {
+            let exerciseInfoVC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
         exerciseInfoVC.activity = currentActivity
             navigationController?.pushViewController(exerciseInfoVC, animated: true)
         }
-        
-        
-        
-   
     }
-    
     
     
 }
