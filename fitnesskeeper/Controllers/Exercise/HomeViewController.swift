@@ -10,8 +10,11 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController {
+    
+    
     var activities = [Activity]()
-    var sub_activities = [Activity]()
+    var isSubActivities =  false
+    
     var activitiyCellWidth:CGFloat = 0
      var activitiyCellHeight :CGFloat = 0
     var hGap:CGFloat = 2
@@ -21,7 +24,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        
+       setup()
      
         
     }
@@ -41,9 +45,31 @@ class HomeViewController: UIViewController {
         activitiyCellHeight =  activitiyCellWidth * 1.2
         exerciseListCollection.delegate = self
         
+        if !isSubActivities {
+            addObserver( )
+        }
+       
         
+        
+ 
+        
+    }
+    
+    
+    @objc func clickSegment(_ segment: UISegmentedControl) {
+        if segment.selectedSegmentIndex == 0 {
+            exerciseListCollection.isHidden = false
+            
+        } else {
+             exerciseListCollection.isHidden = true 
+        }
+        
+        
+    }
+    
+    func addObserver( ) {
         let dbRef =  Database.database().reference()
-       let activityRef =  dbRef.child("Activities")
+        let activityRef =  dbRef.child("Activities")
         activityRef.observe(.value) { (ss) in
             if  let  value = ss.value as? [String:Any] {
                 self.activities.removeAll() //***
@@ -52,16 +78,16 @@ class HomeViewController: UIViewController {
                     if  let activity = v as? [String:Any] {
                         let id = activity["id"] as? Int
                         let duration = TimeInterval ( activity["duration"] as? Int ?? 0 )
-                         let hasSC:Bool = activity["hasSC"] as? Bool ?? false
+                        let hasSC:Bool = activity["hasSC"] as? Bool ?? false
                         let desc =  activity["desc"] as? String
                         let freq = activity["freq"] as?  Int
                         let name = activity["name"] as? String
                         let remark = activity["remark"] as? String
                         let unit = ( activity["unit"] as? [String] ) ?? [""]
-                       let urls:[String]? =  activity["urls"]  as? [String]
+                        let urls:[String]? =  activity["urls"]  as? [String]
                         let reps:Int? = activity["reps"] as? Int
-                         let distance:Float? = activity["distance"] as? Float
-                         let parentID:Int? = activity["parentid"] as? Int
+                        let distance:Float? = activity["distance"] as? Float
+                        let parentID:Int? = activity["parentid"] as? Int
                         
                         if let id = id , let name = name , let desc = desc, parentID == nil  {
                             let activity = Activity(id: id, name: name, desc: desc, unit: unit)
@@ -76,10 +102,10 @@ class HomeViewController: UIViewController {
                             }
                             
                             if let urls = urls {
-                                activity.imageURLs = urls 
+                                activity.imageURLs = urls
                             }
                             
-                            activity.reps = reps 
+                            activity.reps = reps
                             activity.distance = distance
                         }
                         else if let id = id , let name = name , let desc = desc , parentID != nil { //for sub cat
@@ -94,24 +120,12 @@ class HomeViewController: UIViewController {
                     }
                 }
                 self.activities.sort(by: { (a, b) -> Bool in
-                   return  a.id < b.id
+                    return  a.id < b.id
                 })
-                self.exerciseListCollection.reloadData()
+                 self.exerciseListCollection.reloadData()
             }
- 
         }
     }
-    
-    
-    @objc func clickSegment(_ segment: UISegmentedControl) {
-        if segment.selectedSegmentIndex == 0 {
-        } else {
-            
-        }
-        
-        
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         //TODO: Load exe info in proper place
        // let exerciseInfoVC =  UIViewController(nibName: "ExerciseInfoViewController", bundle: nil)
@@ -122,44 +136,32 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if  sub_activities.count > 0 {
-         return   sub_activities.count
-        }
         return activities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = exerciseListCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ExerciseListsCollectionViewCell
-     
-         if  sub_activities.count > 0 {
-             cell?.config(sub_activities[indexPath.row] )
-         }else{
-             let currentActivity =   activities[indexPath.row]
-            cell?.config(currentActivity )
-        }
+        let currentActivity =   activities[indexPath.row]
+        cell?.config(currentActivity )
+      
        
         return cell!
         
     }
-    func config(ary:[Activity]){
-        sub_activities = ary
-    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let currentActivity = activities[indexPath.row] //**
         if  currentActivity.subActivities.count > 0 {
-            print("Hey SPY load the sub activities")
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
-                else {
-                print("View controller  not found")
-                return
-            }
             
-            vc.config(ary:currentActivity.subActivities)
-            navigationController?.pushViewController(vc, animated: true)
-            
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {
+                    return
+                }
+                vc.activities =  currentActivity.subActivities
+                vc.isSubActivities = true
+                navigationController?.pushViewController(vc, animated: true)
         }
-        else {
+    else {
             let exerciseInfoVC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
         exerciseInfoVC.activity = currentActivity
             navigationController?.pushViewController(exerciseInfoVC, animated: true)
