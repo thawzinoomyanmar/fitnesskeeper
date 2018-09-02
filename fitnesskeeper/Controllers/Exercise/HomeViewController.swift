@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
     
     var activities = [Activity]()
+    var historyActivities = [Activity]()
     var isSubActivities =  false
     
     var activitiyCellWidth:CGFloat = 0
@@ -20,11 +21,13 @@ class HomeViewController: UIViewController {
     var hGap:CGFloat = 2
     var colPerRows:CGFloat = 3
     @IBOutlet weak var exerciseListCollection: UICollectionView!
+    @IBOutlet weak var historyTableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        historyTableView.dataSource = self
+        historyTableView.delegate = self
        setup()
      
         
@@ -59,10 +62,10 @@ class HomeViewController: UIViewController {
     @objc func clickSegment(_ segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
             exerciseListCollection.isHidden = false
-            
         } else {
              exerciseListCollection.isHidden = true 
         }
+         historyTableView.isHidden = !exerciseListCollection.isHidden
         
         
     }
@@ -70,6 +73,9 @@ class HomeViewController: UIViewController {
     func addObserver( ) {
         let dbRef =  Database.database().reference()
         let activityRef =  dbRef.child("Activities")
+        let historyRef =  dbRef.child(Auth.auth().currentUser?.uid ?? "").child("Activity")
+        
+        
         activityRef.observe(.value) { (ss) in
             if  let  value = ss.value as? [String:Any] {
                 self.activities.removeAll() //***
@@ -87,6 +93,7 @@ class HomeViewController: UIViewController {
                         let urls:[String]? =  activity["urls"]  as? [String]
                         let reps:Int? = activity["reps"] as? Int
                         let distance:Float? = activity["distance"] as? Float
+                        let weight:Float? = activity["weight"] as? Float
                         let parentID:Int? = activity["parentid"] as? Int
                         
                         if let id = id , let name = name , let desc = desc, parentID == nil  {
@@ -107,6 +114,7 @@ class HomeViewController: UIViewController {
                             
                             activity.reps = reps
                             activity.distance = distance
+                            activity.weight =  weight 
                         }
                         else if let id = id , let name = name , let desc = desc , parentID != nil { //for sub cat
                             let subactivity = Activity(id: id, name: name, desc: desc, unit: unit)
@@ -125,6 +133,55 @@ class HomeViewController: UIViewController {
                  self.exerciseListCollection.reloadData()
             }
         }
+        
+        historyRef.observe(.value) { (ss) in
+            if  let  value = ss.value as? [String:Any] {
+                self.historyActivities.removeAll() //***
+                for (k,v) in value  {
+                    
+                    if  let activity = v as? [String:Any] {
+                        let id = activity["id"] as? Int
+                        let duration = TimeInterval ( activity["duration"] as? Int ?? 0 )
+                        let freq = activity["freq"] as?  Int
+                        let name = activity["name"] as? String
+                        let remark = activity["remark"] as? String
+                        let unit = activity["unit"] as? String
+                        let url = activity["url"] as? String
+                        let reps:Int? = activity["reps"] as? Int
+                        let distance:Float? = activity["distance"] as? Float
+                        let weight:Float? = activity["weight"] as? Float
+                        let dateValue:Float? = activity["date"] as? Float
+                        
+                        if let id = id , let name = name   {
+                            let activity = Activity(id: id, name: name, unit: unit ?? "")
+                            self.activities.append(activity)
+                            activity.duration = duration
+                            
+                            if let freq = freq {
+                                activity.freq = freq
+                            }
+                            if let remark = remark {
+                                activity.remark = remark
+                            }
+                            
+                            if let url = url {
+                                activity.imageURLs = [url]
+                            }
+                            
+                            activity.reps = reps
+                            activity.distance = distance
+                            activity.weight =  weight
+                            if let dateValue = dateValue {
+                                activity.date =  Date.init(timeIntervalSince1970: TimeInterval(dateValue))
+                            }
+                            self.historyActivities.append(activity)
+                        }
+                    }
+                }
+                
+                self.historyTableView.reloadData()
+            }
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         //TODO: Load exe info in proper place
@@ -134,6 +191,9 @@ class HomeViewController: UIViewController {
     }
 }
 
+    
+    
+    //MARK: Collection View
 extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return activities.count
@@ -186,7 +246,23 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+    extension HomeViewController: UITableViewDelegate {
+        
+    }
 
-
+    extension HomeViewController: UITableViewDataSource {
+        func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
+        }
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+             return historyActivities.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+             let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as? ExerciseHistoryTableViewCell
+            cell?.config(historyActivities[ indexPath.row] )
+            return cell!
+        }
+    }
 
  
