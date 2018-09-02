@@ -26,7 +26,11 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
     - GoogleUtilities/MethodSwizzler (~> 5.2.0)
     - GoogleUtilities/Network (~> 5.2)
+<<<<<<< HEAD
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
+=======
+    - GoogleUtilities/NSData+zlib (~> 5.2)
+>>>>>>> fushion
     - nanopb (~> 0.3)
   - FirebaseAuth (5.0.3):
     - FirebaseAuthInterop (~> 1.0)
@@ -49,7 +53,11 @@ PODS:
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
     - GoogleUtilities/MethodSwizzler (~> 5.2.0)
     - GoogleUtilities/Network (~> 5.2)
+<<<<<<< HEAD
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
+=======
+    - GoogleUtilities/NSData+zlib (~> 5.2)
+>>>>>>> fushion
     - nanopb (~> 0.3)
   - GoogleUtilities/AppDelegateSwizzler (5.2.2):
     - GoogleUtilities/Environment
@@ -62,9 +70,15 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/Network (5.2.2):
     - GoogleUtilities/Logger
+<<<<<<< HEAD
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (5.2.2)"
+=======
+    - GoogleUtilities/NSData+zlib
+    - GoogleUtilities/Reachability
+  - GoogleUtilities/NSData+zlib (5.2.2)
+>>>>>>> fushion
   - GoogleUtilities/Reachability (5.2.2):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
@@ -92,6 +106,7 @@ DEPENDENCIES:
   - paper-onboarding
   - SideMenu
 
+<<<<<<< HEAD
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Charts
@@ -114,6 +129,8 @@ SPEC REPOS:
     - paper-onboarding
     - SideMenu
 
+=======
+>>>>>>> fushion
 SPEC CHECKSUMS:
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
@@ -137,4 +154,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3c52ecb051884b4a5efe6e056e2e3cb5c956c6d8
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0

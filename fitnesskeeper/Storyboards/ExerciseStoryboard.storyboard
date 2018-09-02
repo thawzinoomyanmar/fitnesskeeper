@@ -13,7 +13,7 @@
         <!--Home View Controller-->
         <scene sceneID="VSD-bB-g3R">
             <objects>
-                <viewController id="nzQ-Oq-rxk" customClass="HomeViewController" customModule="fitnesskeeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="nzQ-Oq-rxk" customClass="HomeViewController" customModule="fitnesskeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tXi-Jb-Kqz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

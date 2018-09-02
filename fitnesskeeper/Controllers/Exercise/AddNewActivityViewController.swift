@@ -24,6 +24,7 @@
 
 import UIKit
 import Eureka
+import  Firebase
 /*
  
  
@@ -42,10 +43,10 @@ class AddNewActivityViewController: FormViewController {
     var activity:Activity!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+            super.viewDidLoad()
 
-         setup( )
-       constructInputForm( )
+            setup( )
+            constructInputForm( )
         // Do any additional setup after loading the view.
     }
     
@@ -66,18 +67,28 @@ class AddNewActivityViewController: FormViewController {
             
             <<< PickerInlineRow<Int>("Duration"){ row in
                 row.options  =  [1 ,2,3,4,5,6,7,8,9,10]
-                row.title = "Duration"
+                row.title = "Duration (minute)"
             }
             
             <<< PickerInlineRow<Int>("times"){ row in
                 row.options  =  [1 ,2,3,4,5,6,7,8,9,10]
                 row.title = "Times"
+                row.value = 1
         }
         
         if let rep = activity.reps {
             form.allSections.first! <<<  PickerInlineRow<Int>("reps"){ row in
-                row.options  =  [1 ,2,3,4,5,6,7,8,9,10]
+                row.options  =  [1 ,2,3,4,5,6,7,8,9,10,11,12,13]
                 row.title = "Reps"
+                 row.value = 1
+            }
+        }
+        
+        if let dist = activity.distance {
+            form.allSections.first! <<<  PickerInlineRow<Float>("distance"){ row in
+                row.options  =  [1 ,2,3,4,5,6,7,8,9,10,11,12,13]
+                row.title = "Distance"
+                 row.value = 0.0
             }
         }
         
@@ -103,6 +114,7 @@ class AddNewActivityViewController: FormViewController {
         }
         let reps =  values["reps"] as? Int
         let unit =  values["units"] as? String
+        let dist = values["distance"] as? Float
         let remark = values["remark"] as? String
         
         activity.duration = TimeInterval( duration ) ?? 0
@@ -110,7 +122,8 @@ class AddNewActivityViewController: FormViewController {
         activity.remark = remark ?? ""
         activity.freq = times ?? 0
         activity.unit = unit ?? ""
-        
+        activity.distance = dist ?? 0.0
+        activity.save(Auth.auth().currentUser?.uid ?? "Unknown" )
           //  self.navigationController?.popViewController(animated: true )
             //self.dismiss(animated: true, completion: nil)
     }
