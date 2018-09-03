@@ -10,6 +10,7 @@
 		496255EC2120249100850949 /* ExerciseListsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496255EB2120249100850949 /* ExerciseListsCollectionViewCell.swift */; };
 		5B7B9BAB749E5FC0E01CB0B6 /* Pods_fitnesskeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E07F29DAB706F55AB10C30 /* Pods_fitnesskeeper.framework */; };
 		CE4325EC211F4A8D00400FE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */; };
+		EA360D54213BF86E00D11AFD /* ExerciseHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA360D53213BF86E00D11AFD /* ExerciseHistoryTableViewCell.swift */; };
 		EA5F8B9F21282E070090D264 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F8B9E21282E060090D264 /* Button.swift */; };
 		EA5F8BA121282E2E0090D264 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F8BA021282E2E0090D264 /* Activity.swift */; };
 		EAA317C82131683E00A2738C /* AddNewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA317C62131683E00A2738C /* AddNewActivityViewController.swift */; };
@@ -36,6 +37,7 @@
 		825F637AD0B9621451D9AB30 /* Pods-fitnesskeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnesskeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitnesskeeper/Pods-fitnesskeeper.release.xcconfig"; sourceTree = "<group>"; };
 		A7E07F29DAB706F55AB10C30 /* Pods_fitnesskeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnesskeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EA360D53213BF86E00D11AFD /* ExerciseHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		EA5F8B9E21282E060090D264 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		EA5F8BA021282E2E0090D264 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		EAA317C62131683E00A2738C /* AddNewActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewActivityViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		EABE1A1F211EF0EE003EE6DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EA360D53213BF86E00D11AFD /* ExerciseHistoryTableViewCell.swift */,
 				496255EB2120249100850949 /* ExerciseListsCollectionViewCell.swift */,
 				EA5F8B9E21282E060090D264 /* Button.swift */,
 			);
@@ -298,7 +301,8 @@
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -310,7 +314,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -359,6 +364,7 @@
 				EA5F8BA121282E2E0090D264 /* Activity.swift in Sources */,
 				EABE1A2A211EF2AD003EE6DD /* SplashViewController.swift in Sources */,
 				EAEA8B7C21298AE200294BB2 /* Constant.swift in Sources */,
+				EA360D54213BF86E00D11AFD /* ExerciseHistoryTableViewCell.swift in Sources */,
 				EAA317C82131683E00A2738C /* AddNewActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,7 +505,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = fitnesskeeper/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tps.fitnesskeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -516,7 +525,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = fitnesskeeper/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tps.fitnesskeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

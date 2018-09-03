@@ -51,7 +51,11 @@ class FirebaseManager {
         let dbRef =  Database.database().reference()
         let userActivityDbRef = dbRef.child(forUserId).child("Activity")
         let newRecordID = userActivityDbRef.childByAutoId()
-        newRecordID.setValue(["id": activity.id , "duration": activity.duration, "freq": activity.freq, "unit": activity.unit ,"distance": activity.distance!,"date": currentTime  ])
+        
+        let weight = activity.weight ?? 0
+        let dist = activity.distance ?? 0
+        let url = (activity.imageURLs?.first ?? "")
+        newRecordID.setValue(["id": activity.id ,"name": activity.name , "duration": activity.duration,"weight": weight , "freq": activity.freq, "unit": activity.unit ,"distance": dist,"date": currentTime , "url": url] )
     }
 }
 
@@ -68,21 +72,32 @@ class Activity {
     var reps:Int? = nil
     var subActivities:[Activity] = [Activity]( )
     var desc:String
-    private var _unit:[String] =  [String]()
-    var units :[String] { return _unit }
+    private var _units:[String] =  [String]()
+    var units :[String] { return _units }
     var unit : String = ""
     var   imageURLs:[String]?
     
     var distance: Float? = 0.0
+    var sets:Int? =  0
+    var weight:Float? = 0.0
     var duration:TimeInterval  = 0
-    var freq:Int = 0
+    var date:Date?
+    var technique:String? 
+    var freq:Int = 1
     var remark = ""
     
     init(id:Int, name:String ,desc:String, unit:[String] ) {
         self._id = id
         self._name = name
         self.desc = desc
-        self._unit = unit
+        self._units = unit
+    }
+    
+    init(id:Int, name:String , unit:String ) {
+        self._id = id
+        self._name = name
+        self.desc = ""
+        self.unit = unit
     }
     
     //Methods

@@ -92,6 +92,14 @@ class AddNewActivityViewController: FormViewController {
             }
         }
         
+        if let weight = activity.weight {
+            form.allSections.first! <<<  PickerInlineRow<Float>("weight"){ row in
+                row.options  =  [2,5,10,20,30,50,80]
+                row.title = "Weight"
+                row.value = 0.0
+            }
+        }
+        
         form.allSections.first! <<< PickerInlineRow<String>("unit"){ row in
             row.options  =   activity.units
             row.title = "Unit"
@@ -116,6 +124,7 @@ class AddNewActivityViewController: FormViewController {
         let unit =  values["units"] as? String
         let dist = values["distance"] as? Float
         let remark = values["remark"] as? String
+        let weight = values["weight"] as? Float
         
         activity.duration = TimeInterval( duration ) ?? 0
          activity.reps =  reps
@@ -123,8 +132,9 @@ class AddNewActivityViewController: FormViewController {
         activity.freq = times ?? 0
         activity.unit = unit ?? ""
         activity.distance = dist ?? 0.0
+        activity.weight = weight ?? 0.0
         activity.save(Auth.auth().currentUser?.uid ?? "Unknown" )
-          //  self.navigationController?.popViewController(animated: true )
+        self.navigationController?.popViewController(animated: true )
             //self.dismiss(animated: true, completion: nil)
     }
     
