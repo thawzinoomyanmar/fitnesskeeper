@@ -29,7 +29,7 @@
  "urls" : [ "firebasestorage.googleapis.com", "" ]*/
 import Foundation
 import Firebase
-<<<<<<< HEAD
+
 class FirebaseManager{
     static var main = FirebaseManager()
     func save(_activity : Activity,forUserId:String )
@@ -40,7 +40,7 @@ class FirebaseManager{
         newRecordID.setValue(["id":_activity.id,"duration":activity.duration,"freq":activity.freq,"unit":activity.unit])
     }
 }
-=======
+
 
 class FirebaseManager {
     static var main =  FirebaseManager( )
@@ -56,7 +56,7 @@ class FirebaseManager {
 }
 
 
->>>>>>> fushion
+
 class Activity {
     private var _id:Int
     
