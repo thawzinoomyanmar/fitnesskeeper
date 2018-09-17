@@ -48,9 +48,9 @@ class HomeViewController: UIViewController {
         activitiyCellHeight              =  activitiyCellWidth * 1.2
         exerciseListCollection.delegate  = self
         
-        if !isSubActivities {
-            addObserver( )
-        }
+         if  !isSubActivities {
+            addObserver( isSubActivities)
+         }
        
         
         
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController {
         
     }
     
-    func addObserver( ) {
+    func addObserver(_ isSubActivities:Bool  ) {
         let dbRef =  Database.database().reference()
         let activityRef =  dbRef.child("Activities")
         let historyRef =  dbRef.child(Auth.auth().currentUser?.uid ?? "").child("Activity")
@@ -81,7 +81,12 @@ class HomeViewController: UIViewController {
                 self.activities.removeAll() //***
                 for (k,v) in value  {
                     
+                   
+                    
                     if  let activity = v as? [String:Any] {
+                        let parentID:Int? = activity["parentid"] as? Int
+                        
+                        
                         let id = activity["id"] as? Int
                         let duration = TimeInterval ( activity["duration"] as? Int ?? 0 )
                         let hasSC:Bool = activity["hasSC"] as? Bool ?? false
@@ -94,7 +99,12 @@ class HomeViewController: UIViewController {
                         let reps:Int? = activity["reps"] as? Int
                         let distance:Float? = activity["distance"] as? Float
                         let weight:Float? = activity["weight"] as? Float
-                        let parentID:Int? = activity["parentid"] as? Int
+                       
+                       
+//                        if isSubActivities &&  parentID == nil {
+//                            continue
+//                        }
+                        
                         
                         if let id = id , let name = name , let desc = desc, parentID == nil  {
                             let activity = Activity(id: id, name: name, desc: desc, unit: unit)
@@ -118,7 +128,18 @@ class HomeViewController: UIViewController {
                         }
                         else if let id = id , let name = name , let desc = desc , parentID != nil { //for sub cat
                             let subactivity = Activity(id: id, name: name, desc: desc, unit: unit)
+                            subactivity.duration = duration
                             
+                            if let freq = freq {
+                                subactivity.freq = freq
+                            }
+                            if let remark = remark {
+                                subactivity.remark = remark
+                            }
+                            
+                            if let urls = urls {
+                                subactivity.imageURLs = urls
+                            }
                             for parent in self.activities {
                                 if parent.id    == parentID {
                                     parent.subActivities.append(subactivity)
