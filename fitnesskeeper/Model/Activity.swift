@@ -30,16 +30,16 @@
 import Foundation
 import Firebase
 
-class FirebaseManager{
-    static var main = FirebaseManager()
-    func save(_activity : Activity,forUserId:String )
-    {
-        let dbRef = Database.database().reference()
-        let userActivity = dbRef.child(forUserId).child("Activity")
-        let newRecordID = userActivityDbRef.childByAutoId()
-        newRecordID.setValue(["id":_activity.id,"duration":activity.duration,"freq":activity.freq,"unit":activity.unit])
-    }
-}
+//class FirebaseManager{
+//    static var main = FirebaseManager()
+//    func save(_activity : Activity,forUserId:String )
+//    {
+//        let dbRef = Database.database().reference()
+//        let userActivity = dbRef.child(forUserId).child("Activity")
+//        let newRecordID = userActivityDbRef.childByAutoId()
+//        newRecordID.setValue(["id":_activity.id,"duration":activity.duration,"freq":activity.freq,"unit":activity.unit])
+//    }
+//}
 
 
 class FirebaseManager {
