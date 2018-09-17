@@ -1,0 +1,12 @@
+
+\.DS_Store
+
+fitnesskeeper\.xcworkspace/xcuserdata/minaunghein\.xcuserdatad/UserInterfaceState\.xcuserstate
+
+fitnesskeeper\.xcworkspace/xcuserdata/minaunghein\.xcuserdatad/xcdebugger/Breakpoints_v2\.xcbkptlist
+
+Podfile\.lock
+
+Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID\.framework/
+
+Pods/

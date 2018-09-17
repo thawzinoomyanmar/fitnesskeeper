@@ -7,29 +7,84 @@
 //
 
 import UIKit
-
-class OnboardingViewController: UIViewController {
+//import paper_onboarding
+class OnboardingViewController: UIViewController   { //} ,PaperOnboardingDelegate,PaperOnboardingDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print("Showing onbarding...")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+      /*  onboarding.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(onboarding)
+        
+        if (onboarding.currentIndex == 0) {
+            let button1 = UIButton()
+            button1.frame = CGRect(x: 20, y: 40, width: 200, height: 100)
+            button1.backgroundColor = UIColor.black
+            
+            button1.setTitle("accountsignup", for: .normal)
+            
+            button1.layer.masksToBounds = false
+            button1.layer.cornerRadius = 10
+            view.addSubview(button1)
+        }
+        //view.addSubview(button1)
+        
+        // add constraints
+        for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
+            let constraint = NSLayoutConstraint(item: onboarding,
+                                                attribute: attribute,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: attribute,
+                                                multiplier: 1,
+                                                constant: 0)
+            view.addConstraint(constraint)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func onboardingItem(at index: Int) -> OnboardingItemInfo {
+        
+        
+        
+        
+        return [
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "logo"),
+                               title: "title",
+                               description: "description",
+                               pageIcon: #imageLiteral(resourceName: "logo"),
+                               color: UIColor.red,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.boldSystemFont(ofSize: 12),
+                               descriptionFont: UIFont.boldSystemFont(ofSize: 14)),
+            
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "logo"),
+                               title: "title",
+                               description: "description",
+                               pageIcon: #imageLiteral(resourceName: "logo"),
+                               color: UIColor.green,
+                               titleColor: UIColor.red,
+                               descriptionColor: UIColor.blue,
+                               titleFont: UIFont.boldSystemFont(ofSize: 12),
+                               descriptionFont: UIFont.boldSystemFont(ofSize: 14)),
+            
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "logo"),
+                               title: "title",
+                               description: "description",
+                               pageIcon: #imageLiteral(resourceName: "logo"),
+                               color: UIColor.red,
+                               titleColor: UIColor.green,
+                               descriptionColor: UIColor.blue,
+                               titleFont: UIFont.boldSystemFont(ofSize: 12),
+                               descriptionFont: UIFont.boldSystemFont(ofSize: 14))
+            ][index]
     }
-    */
+    
+    func onboardingItemsCount() -> Int {
+        return 3
+    }*/
+        
 
 }
