@@ -12,41 +12,41 @@ import Firebase
 class HomeViewController: UIViewController {
     
     
-    var activities = [Activity]()
-    var historyActivities = [Activity]()
-    var isSubActivities =  false
+    var activities                                     = [Activity]()
+    var historyActivities                              = [Activity]()
+    var isSubActivities                                =  false
     
-    var activitiyCellWidth:CGFloat = 0
-     var activitiyCellHeight :CGFloat = 0
-    var hGap:CGFloat = 2
-    var colPerRows:CGFloat = 3
-    @IBOutlet weak var exerciseListCollection: UICollectionView!
-    @IBOutlet weak var historyTableView: UITableView!
+    var activitiyCellWidth                    :CGFloat = 0
+     var activitiyCellHeight                  :CGFloat = 0
+    var hGap                                  :CGFloat = 2
+    var colPerRows                            :CGFloat = 3
+    @IBOutlet weak var exerciseListCollection : UICollectionView!
+    @IBOutlet weak var historyTableView       : UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.dataSource = self
-        historyTableView.delegate = self
+        historyTableView.delegate   = self
        setup()
      
         
     }
     
     func setup()  {
-        let segmentCtrl = UISegmentedControl()
-        segmentCtrl.insertSegment(withTitle: "Activity", at: 0, animated: false)
-         segmentCtrl.insertSegment(withTitle: "History", at: 1, animated: false)
-        segmentCtrl.frame = CGRect(x: 0, y: 0, width: view.frame.size.width / 2 , height: (self.navigationController?.navigationBar.frame.size.height)! - 20 )
+        let segmentCtrl   = UISegmentedControl()
+        segmentCtrl.insertSegment(withTitle  : "Activity", at  : 0, animated  : false)
+        segmentCtrl.insertSegment(withTitle : "History", at : 1, animated : false)
+        segmentCtrl.frame = CGRect(x         : 0, y         : 0, width         : view.frame.size.width / 2 , height         : (self.navigationController?.navigationBar.frame.size.height)! - 20 )
         
-        self.navigationItem.titleView = segmentCtrl
+        self.navigationItem.titleView    = segmentCtrl
         segmentCtrl.selectedSegmentIndex = 0
-        segmentCtrl.addTarget(self, action:  #selector(clickSegment(_:)) , for: .valueChanged)
-        segmentCtrl.tintColor =  Default.segmentTintColor
+        segmentCtrl.addTarget(self, action :  #selector(clickSegment(_ :)) , for : .valueChanged)
+        segmentCtrl.tintColor            =  Default.segmentTintColor
         
-        activitiyCellWidth = ( self.view.frame.width - hGap * ( colPerRows - 1) ) / colPerRows
-        activitiyCellHeight =  activitiyCellWidth * 1.2
-        exerciseListCollection.delegate = self
+        activitiyCellWidth               = ( self.view.frame.width - hGap * ( colPerRows - 1) ) / colPerRows
+        activitiyCellHeight              =  activitiyCellWidth * 1.2
+        exerciseListCollection.delegate  = self
         
         if !isSubActivities {
             addObserver( )
@@ -61,11 +61,11 @@ class HomeViewController: UIViewController {
     
     @objc func clickSegment(_ segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
-            exerciseListCollection.isHidden = false
+            exerciseListCollection.isHidden  = false
         } else {
              exerciseListCollection.isHidden = true 
         }
-         historyTableView.isHidden = !exerciseListCollection.isHidden
+         historyTableView.isHidden           = !exerciseListCollection.isHidden
         
         
     }
