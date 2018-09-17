@@ -29,4 +29,5 @@ struct Default {
     static var cellBkColor = UIColor.white
     static var tabarColor = UIColor.green
     static var segmentTintColor  = UIColor.purple
+    static var welcomelogo = "runningman"
 }

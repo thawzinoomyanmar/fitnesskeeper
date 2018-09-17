@@ -27,6 +27,9 @@ import Kingfisher
 
 class ExerciseHistoryTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var distanctStackView: UIStackView!
+    
     @IBOutlet weak var exerciseImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -57,7 +60,7 @@ class ExerciseHistoryTableViewCell: UITableViewCell {
                 distanceLabel.text = String(distance) + " " +  activity.unit
         }
         else {
-            distanceLabel.isHidden = true
+            distanctStackView.isHidden = true
         }
         
         if activity.duration  > 0 {

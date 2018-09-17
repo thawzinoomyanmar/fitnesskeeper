@@ -39,16 +39,9 @@ var mode = 0 // for mode signup = 1
             return
         }
         Auth.auth().createUser(withEmail: email, password: pwd) { (user, error) in
-            
-            if error == nil {
-             
-             self.hideBusy()
-                
-            }
-            else {
-                self.hideBusy()
-                
-                print(error?.localizedDescription)
+            self.hideBusy()
+            if let error =  error {
+                self.alert(title: "Error", message: error.localizedDescription   )
             }
 
             
@@ -65,21 +58,10 @@ var mode = 0 // for mode signup = 1
         }
         
         Auth.auth().signIn (withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
-           
-            let dialog = UIAlertController(title: error!.localizedDescription, message: "", preferredStyle: UIAlertControllerStyle.alert)
-            dialog.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            DispatchQueue.main.async(execute: {
-                self.present(dialog, animated: true, completion: nil)
-            })//Alert Error Message
-            
-//            if let error = error {
-//                print(error.localizedDescription)
-//           self.lblCaution.text = "\(error.localizedDescription)"
-//            }
-//            else if let user = user {
-//                print (user)
-//                self.lblCaution.text = " \(email)"
-            //            }(NOTE: Label Show in View Controller Page)
+           self.hideBusy()
+            if let error =  error {
+                self.alert(title: "Error", message: error.localizedDescription   )
+            }
           
         }
     }
