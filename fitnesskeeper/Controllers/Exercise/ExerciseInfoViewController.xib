@@ -33,7 +33,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZg-lp-4a8">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="aZH-4m-M3l">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Running" translatesAutoresizingMaskIntoConstraints="NO" id="aZH-4m-M3l">
                                             <rect key="frame" x="50" y="80" width="275" height="107"/>
                                         </imageView>
                                     </subviews>
@@ -53,14 +53,12 @@
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQG-Ju-aGC">
                                     <rect key="frame" x="10" y="318.5" width="355" height="188.5"/>
-                                    <color key="backgroundColor" red="0.1689281775" green="0.2139324215" blue="0.28156725890000001" alpha="0.75090967470000003" colorSpace="custom" customColorSpace="displayP3"/>
                                     <string key="text">Activity description Activity descriptionActivity descriptionActivity descriptionActivity descriptionActivity descriptionActivity descriptionActivity descriptionActivity descriptionActivity descriptionActivity descriptionActivity descriptionActivity description</string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>
-                            <color key="backgroundColor" red="0.1334631741" green="0.1823148429" blue="0.25190103050000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="GDy-vk-kIv" firstAttribute="top" secondItem="mZg-lp-4a8" secondAttribute="bottom" constant="10" id="Cpc-0V-c1K"/>
                                 <constraint firstAttribute="trailing" secondItem="GDy-vk-kIv" secondAttribute="trailing" constant="10" id="DYj-xg-ZxO"/>
@@ -88,9 +86,9 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLy-21-SxV">
                             <rect key="frame" x="10" y="10" width="355" height="73.5"/>
-                            <color key="backgroundColor" red="0.50289988129999996" green="0.99262708430000002" blue="0.47024773440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Add Activity">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
                                 <action selector="addActivity:" destination="-1" eventType="touchUpInside" id="Xra-eP-SHG"/>
@@ -124,6 +122,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logo" width="2480" height="2480"/>
+        <image name="Running" width="793" height="817"/>
     </resources>
 </document>

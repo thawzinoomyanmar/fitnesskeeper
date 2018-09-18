@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "1610440.jpg",
+      "filename" : "Running.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Running@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Running@3x.png",
       "scale" : "3x"
     }
   ],
