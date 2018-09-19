@@ -31,7 +31,9 @@ class HomeViewController: UIViewController {
        setup()
      
         
+        
     }
+
     
     func setup()  {
         let segmentCtrl   = UISegmentedControl()
