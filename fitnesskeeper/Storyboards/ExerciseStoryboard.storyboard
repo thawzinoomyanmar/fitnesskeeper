@@ -77,12 +77,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="693" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GRL-OG-eb4">
-                                                    <rect key="frame" x="15" y="15" width="87" height="95"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="693" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GRL-OG-eb4">
+                                                    <rect key="frame" x="19" y="15" width="105" height="94"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="GRL-OG-eb4" secondAttribute="height" multiplier="100:121" id="Shg-JK-m3x"/>
-                                                        <constraint firstAttribute="height" constant="121" id="VtN-7W-VLj"/>
-                                                        <constraint firstAttribute="width" constant="100" id="kg5-xh-1dc"/>
+                                                        <constraint firstAttribute="height" constant="90" id="2R3-Uy-z09"/>
+                                                        <constraint firstAttribute="width" constant="90" id="Cec-Ol-wmr"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swimming" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTj-Bc-SaJ">
@@ -212,11 +211,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="Fgj-T0-rnP" secondAttribute="trailing" constant="5" id="3fY-x9-LTz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="xTj-Bc-SaJ" secondAttribute="trailing" constant="4" id="An0-L8-hbA"/>
                                                 <constraint firstItem="xTj-Bc-SaJ" firstAttribute="top" secondItem="D4v-Hm-2oe" secondAttribute="topMargin" constant="4" id="Oh1-4t-AhA"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="GRL-OG-eb4" secondAttribute="bottom" constant="54" id="T0L-y0-4Ef"/>
                                                 <constraint firstItem="Fgj-T0-rnP" firstAttribute="leading" secondItem="xTj-Bc-SaJ" secondAttribute="leading" id="V9u-Of-RGZ"/>
-                                                <constraint firstItem="GRL-OG-eb4" firstAttribute="top" secondItem="D4v-Hm-2oe" secondAttribute="topMargin" constant="4" id="Vda-50-O1v"/>
                                                 <constraint firstItem="Fgj-T0-rnP" firstAttribute="top" secondItem="xTj-Bc-SaJ" secondAttribute="bottom" constant="5" id="Wwu-aq-4pH"/>
-                                                <constraint firstItem="GRL-OG-eb4" firstAttribute="leading" secondItem="D4v-Hm-2oe" secondAttribute="leadingMargin" id="c1I-Vj-MeG"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fgj-T0-rnP" secondAttribute="bottom" constant="5" id="vTY-Cb-3qd"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -273,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XiH-8e-b2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2223.1999999999998" y="180.35982008995504"/>
+            <point key="canvasLocation" x="1962" y="-110"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4NM-Ep-vCh">

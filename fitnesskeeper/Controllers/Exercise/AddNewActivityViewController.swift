@@ -48,7 +48,16 @@ class AddNewActivityViewController: FormViewController {
             setup( )
             constructInputForm( )
         // Do any additional setup after loading the view.
+        
+        
+   
+  
+        
+        
     }
+   
+  
+    
     
     func setup() {
         let rightSaveBtn = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
@@ -109,6 +118,7 @@ class AddNewActivityViewController: FormViewController {
         form.allSections.first!  <<< TextAreaRow  ( "remark") { row in
             row.placeholder = "Note here"
         }
+       
     }
 
     @objc func save( ) {

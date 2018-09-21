@@ -27,7 +27,8 @@ import UIKit
 
 struct Default {
     static var cellBkColor = UIColor.white
-    static var tabarColor = UIColor.black//(red: 0.651, green: 0.349, blue: 0.8784, alpha: 1.0)
-    static var segmentTintColor  = UIColor(red: 0.651, green: 0.349, blue: 0.8784, alpha: 1.0)
+    static var tabarColor = UIColor(red:0.51, green:0.19, blue:0.81, alpha:1.0)//(red: 0.651, green: 0.349, blue: 0.8784, alpha: 1.0)
+    static var segmentTintColor  = UIColor.white
     static var welcomelogo = "runningman"
+    static var backBarButtonItem = UIColor.white
 }
