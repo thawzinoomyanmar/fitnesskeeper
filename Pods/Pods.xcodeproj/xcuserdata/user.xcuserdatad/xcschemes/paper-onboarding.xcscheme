@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E4E90EF73F2AB90CC7E25A3181E5A4F"
-               BuildableName = "libFirebaseStorage.a"
-               BlueprintName = "FirebaseStorage"
+               BlueprintIdentifier = "738B2050D3EE6CEF2F8FC5020EAB44A1"
+               BuildableName = "paper_onboarding.framework"
+               BlueprintName = "paper-onboarding"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7E4E90EF73F2AB90CC7E25A3181E5A4F"
-            BuildableName = "libFirebaseStorage.a"
-            BlueprintName = "FirebaseStorage"
+            BlueprintIdentifier = "738B2050D3EE6CEF2F8FC5020EAB44A1"
+            BuildableName = "paper_onboarding.framework"
+            BlueprintName = "paper-onboarding"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
