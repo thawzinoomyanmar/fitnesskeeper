@@ -70,6 +70,7 @@ class Activity {
     var name:String { return _name }
     
     var reps:Int? = nil
+    var parentID:Int?
     var subActivities:[Activity] = [Activity]( )
     var desc:String
     private var _units:[String] =  [String]()

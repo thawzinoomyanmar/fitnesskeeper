@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
     
     var activities                                     = [Activity]()
+    var subActivities                                     = [Activity]()
     var historyActivities                              = [Activity]()
     var isSubActivities                                =  false
     
@@ -130,6 +131,7 @@ class HomeViewController: UIViewController {
                         }
                         else if let id = id , let name = name , let desc = desc , parentID != nil { //for sub cat
                             let subactivity = Activity(id: id, name: name, desc: desc, unit: unit)
+                            subactivity.parentID = parentID
                             subactivity.duration = duration
                             
                             if let freq = freq {
@@ -142,14 +144,19 @@ class HomeViewController: UIViewController {
                             if let urls = urls {
                                 subactivity.imageURLs = urls
                             }
-                            for parent in self.activities {
-                                if parent.id    == parentID {
-                                    parent.subActivities.append(subactivity)
-                                }
-                            }
+                            self.subActivities.append(subactivity)
                         }
                     }
                 }
+                
+                for parent in self.activities {
+                    for subActivity in self.subActivities {
+                        if parent.id    == subActivity.parentID {
+                            parent.subActivities.append(subActivity)
+                    }
+                    }
+                }
+                
                 self.activities.sort(by: { (a, b) -> Bool in
                     return  a.id < b.id
                 })

@@ -509,16 +509,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7495PL64YV;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = V2NHD2PTYH;
 				INFOPLIST_FILE = fitnesskeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tps.fitnesskeeper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techplus.fitnesskeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "acb56c01-f070-4383-b64d-f0446306e44c";
+				PROVISIONING_PROFILE_SPECIFIER = TZOFitnessDev;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -529,17 +530,18 @@
 			baseConfigurationReference = 825F637AD0B9621451D9AB30 /* Pods-fitnesskeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7495PL64YV;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = V2NHD2PTYH;
 				INFOPLIST_FILE = fitnesskeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tps.fitnesskeeper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techplus.fitnesskeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "fa8f4839-18be-42bc-ad05-a8668b30fb0a";
+				PROVISIONING_PROFILE_SPECIFIER = TZOFitnessDist;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
