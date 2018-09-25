@@ -10,3 +10,7 @@ Podfile\.lock
 Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID\.framework/
 
 Pods/
+
+fitnesskeeper\.xcodeproj/xcuserdata/user\.xcuserdatad/xcschemes/xcschememanagement\.plist
+
+fitnesskeeper\.xcworkspace/xcuserdata/user\.xcuserdatad/UserInterfaceState\.xcuserstate
