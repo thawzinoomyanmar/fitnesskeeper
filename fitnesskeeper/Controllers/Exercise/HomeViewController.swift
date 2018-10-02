@@ -30,8 +30,13 @@ class HomeViewController: UIViewController {
         historyTableView.dataSource = self
         historyTableView.delegate   = self
        setup()
-     
         
+        
+      
+//self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
+       self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+       
+       
         
     }
 

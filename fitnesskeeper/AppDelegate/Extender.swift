@@ -27,7 +27,7 @@ import AVFoundation
 
 import NVActivityIndicatorView
 import UIKit
-import Charts
+//import Charts
 
 
 
@@ -1239,74 +1239,74 @@ extension UINavigationBar {
 }
 
 
-extension LineChartDataSet {
-    func setupCommonLineChartData() {
-        self.valueFont = .systemFont(ofSize: 10)
-        self.drawValuesEnabled = false//true
-        self.mode = .linear
-        self.circleRadius = 5
-        self.lineWidth = 2.5
-        self.circleHoleRadius = 2.5
-        self.valueTextColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
-    }
-    func setupForUserWeightDataLineChart () {
-        setupCommonLineChartData()
-        self.setColor(UIColor(red: 31/255, green: 186/255, blue: 252/255, alpha: 1))
-        self.setCircleColor(UIColor(red: 31/255, green: 186/255, blue: 252/255, alpha: 1))
-        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
-        self.axisDependency = .left
-    }
-    
-    func setupForNutrientDataLineChart () {
-        setupCommonLineChartData()
-        self.setColor(UIColor(red: 150/255, green: 76/255, blue: 219/255, alpha: 1))
-        self.setCircleColor(UIColor(red: 150/255, green: 76/255, blue: 219/255, alpha: 1))
-        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
-        self.axisDependency = .left
-    }
-    
-    func setupForUserBodyFatDataLineChart() {
-        setupCommonLineChartData()
-        self.setColor(UIColor(red: 248/255, green: 140/255, blue: 5/255, alpha: 1))
-        self.setCircleColor(UIColor(red: 245/255, green: 140/255, blue: 5/255, alpha: 1))
-        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
-        self.axisDependency = .right
-    }
-    
-    func setupForUserTargetWeightDataLineChart() {
-        setupCommonLineChartData()
-        self.setColor(UIColor(red: 255/255, green: 94/255, blue: 66/255, alpha: 1))
-        self.setCircleColor(UIColor(red: 255/255, green: 94/255, blue: 66/255, alpha: 1))
-        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
-        self.axisDependency = .left
-    }
-    
-    
-    func setupForUpperBPDataLineChart () {
-        setupCommonLineChartData()
-        self.setColor(UIColor(red: 34/255, green: 180/255, blue: 176/255, alpha: 1))
-        self.setCircleColor(UIColor(red: 34/255, green: 180/255, blue: 176/255, alpha: 1))
-        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
-        self.axisDependency = .left
-    }
-    func setupForLowerBPDataLineChart () {
-        setupCommonLineChartData()
-        self.setColor(UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1))
-        self.setCircleColor(UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1))
-        self.fillColor = UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1)
-        self.axisDependency = .left
-    }
-    
-    func setupForBloodPressureDataLineChart () {
-        setupCommonLineChartData()
-        self.setColor(UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1))
-        self.setCircleColor(UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1))
-        self.fillColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        self.axisDependency = .left
-        self.valueTextColor =  UIColor.gray
-    }
-    
-}
+//extension LineChartDataSet {
+//    func setupCommonLineChartData() {
+//        self.valueFont = .systemFont(ofSize: 10)
+//        self.drawValuesEnabled = false//true
+//        self.mode = .linear
+//        self.circleRadius = 5
+//        self.lineWidth = 2.5
+//        self.circleHoleRadius = 2.5
+//        self.valueTextColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
+//    }
+//    func setupForUserWeightDataLineChart () {
+//        setupCommonLineChartData()
+//        self.setColor(UIColor(red: 31/255, green: 186/255, blue: 252/255, alpha: 1))
+//        self.setCircleColor(UIColor(red: 31/255, green: 186/255, blue: 252/255, alpha: 1))
+//        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
+//        self.axisDependency = .left
+//    }
+//    
+//    func setupForNutrientDataLineChart () {
+//        setupCommonLineChartData()
+//        self.setColor(UIColor(red: 150/255, green: 76/255, blue: 219/255, alpha: 1))
+//        self.setCircleColor(UIColor(red: 150/255, green: 76/255, blue: 219/255, alpha: 1))
+//        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
+//        self.axisDependency = .left
+//    }
+//    
+//    func setupForUserBodyFatDataLineChart() {
+//        setupCommonLineChartData()
+//        self.setColor(UIColor(red: 248/255, green: 140/255, blue: 5/255, alpha: 1))
+//        self.setCircleColor(UIColor(red: 245/255, green: 140/255, blue: 5/255, alpha: 1))
+//        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
+//        self.axisDependency = .right
+//    }
+//    
+//    func setupForUserTargetWeightDataLineChart() {
+//        setupCommonLineChartData()
+//        self.setColor(UIColor(red: 255/255, green: 94/255, blue: 66/255, alpha: 1))
+//        self.setCircleColor(UIColor(red: 255/255, green: 94/255, blue: 66/255, alpha: 1))
+//        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
+//        self.axisDependency = .left
+//    }
+//    
+//    
+//    func setupForUpperBPDataLineChart () {
+//        setupCommonLineChartData()
+//        self.setColor(UIColor(red: 34/255, green: 180/255, blue: 176/255, alpha: 1))
+//        self.setCircleColor(UIColor(red: 34/255, green: 180/255, blue: 176/255, alpha: 1))
+//        self.fillColor = UIColor(red: 240/255, green: 238/255, blue: 70/255, alpha: 1)
+//        self.axisDependency = .left
+//    }
+//    func setupForLowerBPDataLineChart () {
+//        setupCommonLineChartData()
+//        self.setColor(UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1))
+//        self.setCircleColor(UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1))
+//        self.fillColor = UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1)
+//        self.axisDependency = .left
+//    }
+//    
+//    func setupForBloodPressureDataLineChart () {
+//        setupCommonLineChartData()
+//        self.setColor(UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1))
+//        self.setCircleColor(UIColor(red: 245/255, green: 166/255, blue: 35/255, alpha: 1))
+//        self.fillColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+//        self.axisDependency = .left
+//        self.valueTextColor =  UIColor.gray
+//    }
+//    
+//}
 
 
 class CustomError: NSObject, LocalizedError {
