@@ -30,8 +30,13 @@ class HomeViewController: UIViewController {
         historyTableView.dataSource = self
         historyTableView.delegate   = self
        setup()
-     
         
+        
+      
+//self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "Back")
+       self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+       
+       
         
     }
 
@@ -180,7 +185,7 @@ class HomeViewController: UIViewController {
                         let reps:Int? = activity["reps"] as? Int
                         let distance:Float? = activity["distance"] as? Float
                         let weight:Float? = activity["weight"] as? Float
-                        let dateValue:Float? = activity["date"] as? Float
+                        let dateValue:Double? = activity["date"] as? Double
                         
                         if let id = id , let name = name   {
                             let activity = Activity(id: id, name: name, unit: unit ?? "")

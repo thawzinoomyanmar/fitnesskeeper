@@ -29,7 +29,12 @@ class ExerciseHistoryTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var distanctStackView: UIStackView!
-    
+    @IBOutlet weak var durationStackView: UIStackView!
+    @IBOutlet weak var freqStackView: UIStackView!
+    @IBOutlet weak var setStackView: UIStackView!
+    @IBOutlet weak var repsStackView: UIStackView!
+    @IBOutlet weak var techniqueStackView: UIStackView!
+    @IBOutlet weak var dateStackView: UIStackView!
     @IBOutlet weak var exerciseImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -58,6 +63,7 @@ class ExerciseHistoryTableViewCell: UITableViewCell {
         titleLabel.text =  activity.name
         if let distance =  activity.distance, distance > 0 {
                 distanceLabel.text = String(distance) + " " +  activity.unit
+            distanctStackView.isHidden = false 
         }
         else {
             distanctStackView.isHidden = true
@@ -65,39 +71,44 @@ class ExerciseHistoryTableViewCell: UITableViewCell {
         
         if activity.duration  > 0 {
             durationLabel.text = String(activity.duration) + " " +  activity.unit
+            durationStackView.isHidden = false
         }
         else {
-            durationLabel.isHidden = true
+            durationStackView.isHidden = true
         }
         if    activity.freq > 0 {
-            freqLabel.text = String(activity.freq)  
+            freqLabel.text = String(Float(activity.freq))
+            freqStackView.isHidden = false
         }
         else {
-            freqLabel.isHidden = true
+            freqStackView.isHidden = true
         }
         if   let sets =  activity.sets, sets  > 0 {
             setsLabel.text = String(sets)
+            setStackView.isHidden = false
         }
         else {
-            setsLabel.isHidden = true
+            setStackView.isHidden = true
         }
         
         if   let reps =  activity.reps, reps  > 0 {
             repsLabel.text = String(reps)
+            repsStackView.isHidden = false 
         }
         else {
-            repsLabel.isHidden = true
+            repsStackView.isHidden = true
         }
-        if   let technique =  activity.technique {
+        if   let technique =  activity.technique, technique != "" {
             techniqueLabel.text = technique
+            techniqueStackView.isHidden = false
         }
         else {
-            techniqueLabel.isHidden = true
+            techniqueStackView.isHidden = true
         }
         
         let formatter =  DateFormatter()
-       let exeDate =  activity.date
-        dateLabel .text = String(describing:Date())
+        formatter.dateFormat = "MMM-dd-YY ( hh:mm )"
+        dateLabel .text =   formatter.string(from: activity.date ?? Date() )
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
