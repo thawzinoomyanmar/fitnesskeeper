@@ -1,138 +1,83 @@
 //
 //  OnboardingViewController.swift
-//  fitnesskeeper
+//  template01
 //
-//  Created by Min Aung Hein on 8/11/18.
-//  Copyright © 2018 Min Aung Hein. All rights reserved.
+//  Created by MAH on 12/11/17.
+//  Copyright © 2017 MAH. All rights reserved.
 //
 
 import UIKit
 import paper_onboarding
 
-class OnboardingViewController: UIViewController,PaperOnboardingDataSource,PaperOnboardingDelegate {
-    var onboarding = PaperOnboarding()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        onboarding.dataSource = self
-        onboarding.delegate = self
-        onboarding.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(onboarding)
-        
-//        if (onboarding.currentIndex == 2) {
-//            let button1 = UIButton()
-//            button1.frame = CGRect(x: 20, y: 40, width: 200, height: 100)
-//            button1.backgroundColor = UIColor.black
-//            //.init(red: 251/255, green: 33/255, blue: 38/255, alpha: 1)
-//            button1.setTitle("accountsignup", for: .normal)
-//            //        button1.layer.shadowColor = UIColor.init(red: 254/255, green: 234/255, blue: 233/255, alpha: 1).cgColor
-//            //        button1.layer.shadowOffset = CGSize(width: 0.0, height: 20.0)
-//            //        button1.layer.shadowOpacity = 0.8
-//            //        button1.layer.shadowRadius = 0.0
-//            button1.layer.masksToBounds = false
-//            button1.layer.cornerRadius = 10
-//            view.addSubview(button1)
-//        }
-        //view.addSubview(button1)
-        
-        // add constraints
-        for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
-            let constraint = NSLayoutConstraint(item: onboarding,
-                                                attribute: attribute,
-                                                relatedBy: .equal,
-                                                toItem: view,
-                                                attribute: attribute,
-                                                multiplier: 1,
-                                                constant: 0)
-            view.addConstraint(constraint)
-        }
-    }
-      /*  onboarding.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(onboarding)
-        
-        if (onboarding.currentIndex == 0) {
-            let button1 = UIButton()
-            button1.frame = CGRect(x: 20, y: 40, width: 200, height: 100)
-            button1.backgroundColor = UIColor.black
+class OnboardingViewController:UIViewController, PaperOnboardingDataSource, PaperOnboardingDelegate {
+    
+    
+    
+    @IBOutlet weak var getStartButton:UIButton!
+    
+    func onboardingWillTransitonToIndex(_ index: Int) {
+        if index == 3 {
+            UIView.animate(withDuration: 0.4, delay: 0.8, options: .curveEaseIn, animations: {
+                self.getStartButton.alpha = 1.0
+            }, completion: { ( status ) in
+                
+            })
             
-            button1.setTitle("accountsignup", for: .normal)
-            
-            button1.layer.masksToBounds = false
-            button1.layer.cornerRadius = 10
-            view.addSubview(button1)
         }
-        //view.addSubview(button1)
+        else {
+            self.getStartButton.alpha = 0.0
+        }
         
-        // add constraints
-        for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
-            let constraint = NSLayoutConstraint(item: onboarding,
-                                                attribute: attribute,
-                                                relatedBy: .equal,
-                                                toItem: view,
-                                                attribute: attribute,
-                                                multiplier: 1,
-                                                constant: 0)
-            view.addConstraint(constraint)
-        }
     }
     
-    func onboardingItemsCount() -> Int {
-        return 3
+    func onboardingDidTransitonToIndex(_ index: Int) {
+        
+    }
+    
+    func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
+        
+    }
+    
+    @IBAction func getStart(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "onboard2homeviewid", sender: nil)
+        
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
     }
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        return [
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "logo"),
-                               title: "title",
-                               description: "description",
-                               pageIcon: #imageLiteral(resourceName: "logo"),
-                               color: UIColor.red,
-                               titleColor: UIColor.black,
-                               descriptionColor: UIColor.black,
-                               titleFont: UIFont.boldSystemFont(ofSize: 18),
-                               descriptionFont: UIFont.boldSystemFont(ofSize: 16)),
-            
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "logo"),
-                               title: "title",
-                               description: "description",
-                               pageIcon: #imageLiteral(resourceName: "logo"),
-                               color: UIColor.green,
-                               titleColor: UIColor.black,
-                               descriptionColor: UIColor.black,
-                               titleFont: UIFont.boldSystemFont(ofSize: 18),
-                               descriptionFont: UIFont.boldSystemFont(ofSize: 16)),
-            
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "logo"),
-                               title: "title",
-                               description: "description",
-                               pageIcon: #imageLiteral(resourceName: "logo"),
-                               color: UIColor.blue,
-                               titleColor: UIColor.black,
-                               descriptionColor: UIColor.black,
-                               titleFont: UIFont.boldSystemFont(ofSize: 18),
-                               descriptionFont: UIFont.boldSystemFont(ofSize: 16))
+        
+        let textColor =  Default.tabarColor
+        let backgroundColor1 =  UIColor.white
+        let backgroundColor2 =  UIColor.white
+        let backgroundColor3 =  UIColor.white
+        let backgroundColor4 =  UIColor.white
+        let iconImage =  UIImage(named:"runningman.png")!
+        let descriptionColor  = UIColor.lightGray
+        let textFont =  UIFont.systemFont(ofSize: 30)
+        let descriptionFont = UIFont.boldSystemFont(ofSize: 20)
+        //imageName: String, title: String, description: String, iconName: String, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
+        
+        let info1 = OnboardingItemInfo(informationImage: UIImage(named:"screen1.png")!, title: "Pro Fitness Tracker", description: "Keeping Track of Various Activities and its siblings", pageIcon: iconImage, color: backgroundColor1, titleColor: textColor, descriptionColor: descriptionColor, titleFont: textFont, descriptionFont:descriptionFont)
+        let info2 = OnboardingItemInfo(informationImage: UIImage(named:"screen2.png")!, title: "Fantastic Activities", description: "Walking, Jogging, Swimming, Gym and Workouts , Martial Art, Yoga and many more...", pageIcon:iconImage, color: Default.tabarColor , titleColor: Default.runningManColor, descriptionColor: UIColor.white, titleFont: textFont, descriptionFont:descriptionFont)
+        let info3 = OnboardingItemInfo(informationImage: UIImage(named:"screen3.png")!, title: "Details matters", description: "Every activity comes with informational, applicable hand-on and supportive descriptions", pageIcon: iconImage, color: backgroundColor3, titleColor: textColor, descriptionColor: descriptionColor,  titleFont: textFont, descriptionFont:descriptionFont)
+        let info4 = OnboardingItemInfo(informationImage: UIImage(named:"screen4.png")!, title: "Recordable history", description: "Review your activities and leap forward to next level ", pageIcon:iconImage, color: Default.tabarColor , titleColor: Default.runningManColor, descriptionColor: UIColor.white, titleFont: textFont, descriptionFont:descriptionFont)
+        
+        return [info1,info2,info3,info4
             ][index]
-    }
-    func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int) {
-        
-        
-        
-            item.titleLabel?.backgroundColor = UIColor.white
-            item.descriptionLabel?.backgroundColor = UIColor.white
-//            item.imageView = ...
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
     func onboardingItemsCount() -> Int {
-        return 3
-    }*/
-        
-
+        return 4
+    }
+    
+    
+    
+    
 }
+

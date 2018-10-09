@@ -23,6 +23,18 @@
 		EABE1A39211EF3BC003EE6DD /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE1A38211EF3BC003EE6DD /* ChartViewController.swift */; };
 		EADB18F321204CBA002CE2D2 /* ExerciseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADB18F121204CBA002CE2D2 /* ExerciseInfoViewController.swift */; };
 		EADB18F421204CBA002CE2D2 /* ExerciseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EADB18F221204CBA002CE2D2 /* ExerciseInfoViewController.xib */; };
+		EAFA4361216A15170048267F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA4360216A15170048267F /* Activity.swift */; };
+		EAFA4364216A152A0048267F /* Extender.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA4362216A152A0048267F /* Extender.swift */; };
+		EAFA4365216A152A0048267F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA4363216A152A0048267F /* Constant.swift */; };
+		EAFA4368216A15BA0048267F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA4366216A15BA0048267F /* Button.swift */; };
+		EAFA4369216A15BA0048267F /* ExerciseHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA4367216A15BA0048267F /* ExerciseHistoryTableViewCell.swift */; };
+		EAFA436C216A15E00048267F /* AddNewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA436A216A15E00048267F /* AddNewActivityViewController.swift */; };
+		EAFA436D216A15E00048267F /* AddNewActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAFA436B216A15E00048267F /* AddNewActivityViewController.xib */; };
+		EAFA4370216A169D0048267F /* screen2.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFA436F216A169D0048267F /* screen2.png */; };
+		EAFA4372216A17760048267F /* runningman.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFA4371216A17760048267F /* runningman.png */; };
+		EAFA4374216A19AA0048267F /* screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFA4373216A19AA0048267F /* screen1.png */; };
+		EAFA4376216A20DE0048267F /* screen3.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFA4375216A20DE0048267F /* screen3.png */; };
+		EAFA4378216A22710048267F /* screen4.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFA4377216A22700048267F /* screen4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +59,18 @@
 		EABE1A3A211EF8B9003EE6DD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EADB18F121204CBA002CE2D2 /* ExerciseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoViewController.swift; sourceTree = "<group>"; };
 		EADB18F221204CBA002CE2D2 /* ExerciseInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseInfoViewController.xib; sourceTree = "<group>"; };
+		EAFA4360216A15170048267F /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		EAFA4362216A152A0048267F /* Extender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extender.swift; sourceTree = "<group>"; };
+		EAFA4363216A152A0048267F /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		EAFA4366216A15BA0048267F /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		EAFA4367216A15BA0048267F /* ExerciseHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		EAFA436A216A15E00048267F /* AddNewActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewActivityViewController.swift; path = fitnesskeeper/Controllers/Exercise/AddNewActivityViewController.swift; sourceTree = SOURCE_ROOT; };
+		EAFA436B216A15E00048267F /* AddNewActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddNewActivityViewController.xib; path = fitnesskeeper/Controllers/Exercise/AddNewActivityViewController.xib; sourceTree = SOURCE_ROOT; };
+		EAFA436F216A169D0048267F /* screen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen2.png; sourceTree = "<group>"; };
+		EAFA4371216A17760048267F /* runningman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runningman.png; sourceTree = "<group>"; };
+		EAFA4373216A19AA0048267F /* screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen1.png; sourceTree = "<group>"; };
+		EAFA4375216A20DE0048267F /* screen3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen3.png; sourceTree = "<group>"; };
+		EAFA4377216A22700048267F /* screen4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,13 +116,12 @@
 		EABE1A0B211EF0B9003EE6DD /* fitnesskeeper */ = {
 			isa = PBXGroup;
 			children = (
+				EAFA436E216A16900048267F /* Resources */,
 				EABE1A26211EF158003EE6DD /* Storyboards */,
 				EABE1A21211EF0FF003EE6DD /* AppDelegate */,
 				EABE1A20211EF0F4003EE6DD /* Controllers */,
 				EABE1A1F211EF0EE003EE6DD /* Views */,
 				EABE1A1E211EF0E6003EE6DD /* Model */,
-				EABE1A27211EF174003EE6DD /* ThirdPartyExtensions */,
-				EABE1A28211EF1D4003EE6DD /* Resources */,
 				EABE1A13211EF0BA003EE6DD /* Assets.xcassets */,
 				CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */,
 				EABE1A18211EF0BA003EE6DD /* Info.plist */,
@@ -109,6 +132,7 @@
 		EABE1A1E211EF0E6003EE6DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EAFA4360216A15170048267F /* Activity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +140,10 @@
 		EABE1A1F211EF0EE003EE6DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EAFA436A216A15E00048267F /* AddNewActivityViewController.swift */,
+				EAFA436B216A15E00048267F /* AddNewActivityViewController.xib */,
+				EAFA4366216A15BA0048267F /* Button.swift */,
+				EAFA4367216A15BA0048267F /* ExerciseHistoryTableViewCell.swift */,
 				496255EB2120249100850949 /* ExerciseListsCollectionViewCell.swift */,
 			);
 			path = Views;
@@ -135,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */,
+				EAFA4363216A152A0048267F /* Constant.swift */,
+				EAFA4362216A152A0048267F /* Extender.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -147,20 +177,6 @@
 				EABE1A24211EF142003EE6DD /* ExerciseStoryboard.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		EABE1A27211EF174003EE6DD /* ThirdPartyExtensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ThirdPartyExtensions;
-			sourceTree = "<group>";
-		};
-		EABE1A28211EF1D4003EE6DD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		EABE1A2F211EF2EC003EE6DD /* Login */ = {
@@ -192,6 +208,18 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
+		EAFA436E216A16900048267F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EAFA436F216A169D0048267F /* screen2.png */,
+				EAFA4373216A19AA0048267F /* screen1.png */,
+				EAFA4375216A20DE0048267F /* screen3.png */,
+				EAFA4377216A22700048267F /* screen4.png */,
+				EAFA4371216A17760048267F /* runningman.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FE662FAB6C0F245ECBE4E4C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,7 +240,6 @@
 				EABE1A06211EF0B9003EE6DD /* Frameworks */,
 				EABE1A07211EF0B9003EE6DD /* Resources */,
 				44A3E27B54508A5F99747400 /* [CP] Embed Pods Frameworks */,
-				D008989B8DBDB9B2150D2FED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,11 +288,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAFA4370216A169D0048267F /* screen2.png in Resources */,
+				EAFA436D216A15E00048267F /* AddNewActivityViewController.xib in Resources */,
+				EAFA4372216A17760048267F /* runningman.png in Resources */,
+				EAFA4376216A20DE0048267F /* screen3.png in Resources */,
+				EAFA4374216A19AA0048267F /* screen1.png in Resources */,
 				EABE1A17211EF0BA003EE6DD /* LaunchScreen.storyboard in Resources */,
 				EABE1A14211EF0BA003EE6DD /* Assets.xcassets in Resources */,
 				CE4325EC211F4A8D00400FE5 /* GoogleService-Info.plist in Resources */,
 				EABE1A23211EF133003EE6DD /* LoginStoryboard.storyboard in Resources */,
 				EADB18F421204CBA002CE2D2 /* ExerciseInfoViewController.xib in Resources */,
+				EAFA4378216A22710048267F /* screen4.png in Resources */,
 				EABE1A25211EF142003EE6DD /* ExerciseStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,14 +313,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-fitnesskeeper/Pods-fitnesskeeper-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
-				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -295,14 +326,12 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -331,21 +360,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D008989B8DBDB9B2150D2FED /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fitnesskeeper/Pods-fitnesskeeper-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -356,11 +370,17 @@
 				EABE1A32211EF310003EE6DD /* HomeViewController.swift in Sources */,
 				EABE1A2E211EF2E1003EE6DD /* LoginViewController.swift in Sources */,
 				EABE1A0D211EF0B9003EE6DD /* AppDelegate.swift in Sources */,
+				EAFA436C216A15E00048267F /* AddNewActivityViewController.swift in Sources */,
 				EABE1A2C211EF2D4003EE6DD /* OnboardingViewController.swift in Sources */,
+				EAFA4364216A152A0048267F /* Extender.swift in Sources */,
 				EADB18F321204CBA002CE2D2 /* ExerciseInfoViewController.swift in Sources */,
 				EABE1A36211EF35D003EE6DD /* UserExerciseInfoViewController.swift in Sources */,
 				EABE1A39211EF3BC003EE6DD /* ChartViewController.swift in Sources */,
+				EAFA4365216A152A0048267F /* Constant.swift in Sources */,
 				496255EC2120249100850949 /* ExerciseListsCollectionViewCell.swift in Sources */,
+				EAFA4361216A15170048267F /* Activity.swift in Sources */,
+				EAFA4368216A15BA0048267F /* Button.swift in Sources */,
+				EAFA4369216A15BA0048267F /* ExerciseHistoryTableViewCell.swift in Sources */,
 				EABE1A2A211EF2AD003EE6DD /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,16 +519,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V2NHD2PTYH;
 				INFOPLIST_FILE = fitnesskeeper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tps.fitnesskeeper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techplus.fitnesskeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = TZOFitnessDev;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -519,17 +539,18 @@
 			baseConfigurationReference = 825F637AD0B9621451D9AB30 /* Pods-fitnesskeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V2NHD2PTYH;
 				INFOPLIST_FILE = fitnesskeeper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tps.fitnesskeeper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.techplus.fitnesskeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = TZOFitnessDist;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
