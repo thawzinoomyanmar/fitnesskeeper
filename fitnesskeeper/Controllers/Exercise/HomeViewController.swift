@@ -64,6 +64,7 @@ class HomeViewController: UIViewController {
         segmentCtrl.selectedSegmentIndex = 0
         segmentCtrl.addTarget(self, action :  #selector(clickSegment(_ :)) , for : .valueChanged)
         segmentCtrl.tintColor            =  Default.segmentTintColor
+        self.view.backgroundColor = Default.tabarColor
         
         activitiyCellWidth               = ( self.view.frame.width - hGap * ( colPerRows - 1) ) / colPerRows
         activitiyCellHeight              =  activitiyCellWidth * 1.2

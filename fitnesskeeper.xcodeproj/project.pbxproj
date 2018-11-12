@@ -14,9 +14,9 @@
 		CE37B7402199649A00F7B67B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B73F2199649A00F7B67B /* ViewController.swift */; };
 		CE37B7422199649F00F7B67B /* LeftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7412199649F00F7B67B /* LeftViewCell.swift */; };
 		CE37B744219964AA00F7B67B /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B743219964AA00F7B67B /* LeftViewController.swift */; };
-		CE37B746219964C800F7B67B /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B745219964C800F7B67B /* OtherViewController.swift */; };
-		CE37B748219965BE00F7B67B /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B747219965BE00F7B67B /* About.swift */; };
+		CE37B748219965BE00F7B67B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B747219965BE00F7B67B /* AboutViewController.swift */; };
 		CE4325EC211F4A8D00400FE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */; };
+		EA40A9A821997D830035CE2B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40A9A721997D830035CE2B /* SettingViewController.swift */; };
 		EABE1A0D211EF0B9003EE6DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */; };
 		EABE1A14211EF0BA003EE6DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EABE1A13211EF0BA003EE6DD /* Assets.xcassets */; };
 		EABE1A17211EF0BA003EE6DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EABE1A15211EF0BA003EE6DD /* LaunchScreen.storyboard */; };
@@ -54,9 +54,9 @@
 		CE37B73F2199649A00F7B67B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE37B7412199649F00F7B67B /* LeftViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCell.swift; sourceTree = "<group>"; };
 		CE37B743219964AA00F7B67B /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		CE37B745219964C800F7B67B /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
-		CE37B747219965BE00F7B67B /* About.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		CE37B747219965BE00F7B67B /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EA40A9A721997D830035CE2B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		EABE1A09211EF0B9003EE6DD /* fitnesskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnesskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EABE1A13211EF0BA003EE6DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +108,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EA40A9A4219970E60035CE2B /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CE37B743219964AA00F7B67B /* LeftViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		EA40A9A921997D860035CE2B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				EA40A9A721997D830035CE2B /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		EABE1A00211EF0B9003EE6DD = {
 			isa = PBXGroup;
 			children = (
@@ -154,9 +170,7 @@
 		EABE1A1F211EF0EE003EE6DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE37B745219964C800F7B67B /* OtherViewController.swift */,
-				CE37B743219964AA00F7B67B /* LeftViewController.swift */,
-				CE37B747219965BE00F7B67B /* About.swift */,
+				CE37B747219965BE00F7B67B /* AboutViewController.swift */,
 				CE37B7412199649F00F7B67B /* LeftViewCell.swift */,
 				CE37B73D2199648700F7B67B /* ChooseNavigationController.swift */,
 				CE37B73F2199649A00F7B67B /* ViewController.swift */,
@@ -173,9 +187,11 @@
 		EABE1A20211EF0F4003EE6DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA40A9A4219970E60035CE2B /* SideMenu */,
 				EABE1A2F211EF2EC003EE6DD /* Login */,
 				EABE1A30211EF2F7003EE6DD /* Exercise */,
 				EABE1A37211EF382003EE6DD /* Chart */,
+				EA40A9A921997D860035CE2B /* Setting */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,7 +276,7 @@
 				EABE1A05211EF0B9003EE6DD /* Sources */,
 				EABE1A06211EF0B9003EE6DD /* Frameworks */,
 				EABE1A07211EF0B9003EE6DD /* Resources */,
-				44A3E27B54508A5F99747400 /* [CP] Embed Pods Frameworks */,
+				0F8F473FF805B50FA3CD60E4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -327,7 +343,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		44A3E27B54508A5F99747400 /* [CP] Embed Pods Frameworks */ = {
+		0F8F473FF805B50FA3CD60E4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,7 +357,6 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
@@ -355,7 +370,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
@@ -391,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EABE1A32211EF310003EE6DD /* HomeViewController.swift in Sources */,
+				EA40A9A821997D830035CE2B /* SettingViewController.swift in Sources */,
 				EABE1A2E211EF2E1003EE6DD /* LoginViewController.swift in Sources */,
 				CE37B7422199649F00F7B67B /* LeftViewCell.swift in Sources */,
 				EABE1A0D211EF0B9003EE6DD /* AppDelegate.swift in Sources */,
@@ -403,11 +418,10 @@
 				EABE1A39211EF3BC003EE6DD /* ChartViewController.swift in Sources */,
 				CE37B73C2199646F00F7B67B /* NavigationController.swift in Sources */,
 				EAFA4365216A152A0048267F /* Constant.swift in Sources */,
-				CE37B748219965BE00F7B67B /* About.swift in Sources */,
+				CE37B748219965BE00F7B67B /* AboutViewController.swift in Sources */,
 				CE37B744219964AA00F7B67B /* LeftViewController.swift in Sources */,
 				CE37B7402199649A00F7B67B /* ViewController.swift in Sources */,
 				496255EC2120249100850949 /* ExerciseListsCollectionViewCell.swift in Sources */,
-				CE37B746219964C800F7B67B /* OtherViewController.swift in Sources */,
 				EAFA4361216A15170048267F /* Activity.swift in Sources */,
 				EAFA4368216A15BA0048267F /* Button.swift in Sources */,
 				EAFA4369216A15BA0048267F /* ExerciseHistoryTableViewCell.swift in Sources */,
