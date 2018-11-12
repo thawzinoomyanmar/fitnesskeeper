@@ -19,11 +19,11 @@ target 'fitnesskeeper' do
     #pod 'Charts'
     pod 'IQKeyboardManagerSwift', '~> 6.1.1'
     pod 'Kingfisher','~> 4.8.1'
-    pod 'NVActivityIndicatorView', '~> 4.4.0'
-    pod 'SideMenu', '~> 4.0.0'
+    pod 'NVActivityIndicatorView'
+     
     pod 'leveldb-library','~> 1.20'
     pod 'nanopb' ,'~> 0.3.8'
     pod 'paper-onboarding','~> 4.1.0'
-  pod 'LGSideMenuController'
+    pod 'LGSideMenuController'
 
 end
