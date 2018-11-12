@@ -24,6 +24,19 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var exerciseListCollection : UICollectionView!
     @IBOutlet weak var historyTableView       : UITableView!
     
+    @IBAction func logoutbtn(_ sender: UIBarButtonItem) {
+        do {
+            try Auth.auth().signOut()
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        } catch {
+            print("Error in logout")
+        }
+        
+        
+        
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
