@@ -165,6 +165,7 @@
                         <outlet property="changeModeBtn" destination="3xh-6b-811" id="vCd-vc-QM1"/>
                         <outlet property="emailTextField" destination="mX0-Ig-EqN" id="B8K-FW-giY"/>
                         <outlet property="lblCaution" destination="Vf6-W7-8ZL" id="t3b-vE-tIN"/>
+                        <outlet property="loginUIView" destination="Fgr-EI-MsU" id="FlN-0c-dXA"/>
                         <outlet property="passwordTextField" destination="EmU-8u-DHB" id="4lm-ky-i6T"/>
                         <outlet property="signUpInBtn" destination="1qx-ex-CGu" id="DMs-av-he4"/>
                     </connections>

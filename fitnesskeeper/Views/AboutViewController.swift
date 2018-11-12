@@ -8,7 +8,7 @@
 
 import UIKit
 import WebKit
-class About: UIViewController,WKNavigationDelegate {
+class AboutViewController: UIViewController,WKNavigationDelegate {
     var webView :WKWebView!
  
    
