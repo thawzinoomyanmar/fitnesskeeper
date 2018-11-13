@@ -20,6 +20,7 @@ var mode = 0 // for mode signup = 1
     
     @IBOutlet weak var emailTextField: UITextField!
     
+  
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var lblCaution: UILabel!
     

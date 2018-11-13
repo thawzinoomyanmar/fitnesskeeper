@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import LGSideMenuController
 class HomeViewController: UIViewController {
     
     
@@ -24,6 +24,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var exerciseListCollection : UICollectionView!
     @IBOutlet weak var historyTableView       : UITableView!
     
+    @IBAction func sidemenuBtn(_ sender: UIBarButtonItem) {
+  sideMenuController?.showLeftView(animated: true, completionHandler: nil)
+
+        
+    }
     @IBAction func logoutbtn(_ sender: UIBarButtonItem) {
         do {
             try Auth.auth().signOut()
@@ -37,12 +42,13 @@ class HomeViewController: UIViewController {
         
     }
     
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.dataSource = self
         historyTableView.delegate   = self
-       setup()
+        setup()
         
         
       

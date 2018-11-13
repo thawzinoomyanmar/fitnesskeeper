@@ -44,7 +44,7 @@ class LeftViewController: UITableViewController {
             navCtrl?.pushViewController(vc, animated: true)
         }
         mainViewController?.hideLeftView( animated: true, completionHandler: nil)
-        case 1: if let vc = exeStoryBoard.instantiateViewController(withIdentifier: "about") as? UIViewController  {
+        case 1: if let vc = exeStoryBoard.instantiateViewController(withIdentifier: "about") as?  AboutViewController  {
             navCtrl?.pushViewController(vc, animated: true)
         }
         mainViewController?.hideLeftView( animated: true, completionHandler: nil)

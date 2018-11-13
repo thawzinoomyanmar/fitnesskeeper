@@ -33,4 +33,5 @@ struct Default {
     static var runningManColor = UIColor(red:249/255, green:154/255, blue:34/255, alpha:1.0)
     static var backgroundColor = UIColor(red:0.51, green:0.19, blue:0.81, alpha:1.0)
     
+    
 }

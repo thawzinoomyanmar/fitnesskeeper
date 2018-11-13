@@ -1,21 +1,21 @@
+////
+////  LeftViewCell.swift
+////  LGSideMenuControllerDemo
+////
+//import LGSideMenuController
+//class LeftViewCell: UITableViewCell {
 //
-//  LeftViewCell.swift
-//  LGSideMenuControllerDemo
+//    @IBOutlet var titleLabel: UILabel!
+//    @IBOutlet var separatorView: UIView!
 //
-import LGSideMenuController
-class LeftViewCell: UITableViewCell {
-
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var separatorView: UIView!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        backgroundColor = .clear
-    }
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        titleLabel.alpha = highlighted ? 0.5 : 1.0
-    }
-
-}
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//
+//        backgroundColor = .clear
+//    }
+//
+//    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+//        titleLabel.alpha = highlighted ? 0.5 : 1.0
+//    }
+//
+//}

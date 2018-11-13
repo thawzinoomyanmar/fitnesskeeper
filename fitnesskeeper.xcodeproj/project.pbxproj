@@ -14,8 +14,8 @@
 		CE37B7402199649A00F7B67B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B73F2199649A00F7B67B /* ViewController.swift */; };
 		CE37B7422199649F00F7B67B /* LeftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B7412199649F00F7B67B /* LeftViewCell.swift */; };
 		CE37B744219964AA00F7B67B /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B743219964AA00F7B67B /* LeftViewController.swift */; };
-		CE37B748219965BE00F7B67B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37B747219965BE00F7B67B /* AboutViewController.swift */; };
 		CE4325EC211F4A8D00400FE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */; };
+		CE9833EB2199D57000A53F8C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9833EA2199D57000A53F8C /* AboutViewController.swift */; };
 		EA40A9A821997D830035CE2B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40A9A721997D830035CE2B /* SettingViewController.swift */; };
 		EABE1A0D211EF0B9003EE6DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */; };
 		EABE1A14211EF0BA003EE6DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EABE1A13211EF0BA003EE6DD /* Assets.xcassets */; };
@@ -54,8 +54,8 @@
 		CE37B73F2199649A00F7B67B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE37B7412199649F00F7B67B /* LeftViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewCell.swift; sourceTree = "<group>"; };
 		CE37B743219964AA00F7B67B /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		CE37B747219965BE00F7B67B /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		CE4325EB211F4A8D00400FE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE9833EA2199D57000A53F8C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		EA40A9A721997D830035CE2B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		EABE1A09211EF0B9003EE6DD /* fitnesskeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnesskeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EABE1A0C211EF0B9003EE6DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 		EABE1A1F211EF0EE003EE6DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE37B747219965BE00F7B67B /* AboutViewController.swift */,
 				CE37B7412199649F00F7B67B /* LeftViewCell.swift */,
+				CE9833EA2199D57000A53F8C /* AboutViewController.swift */,
 				CE37B73D2199648700F7B67B /* ChooseNavigationController.swift */,
 				CE37B73F2199649A00F7B67B /* ViewController.swift */,
 				CE37B73B2199646F00F7B67B /* NavigationController.swift */,
@@ -276,7 +276,7 @@
 				EABE1A05211EF0B9003EE6DD /* Sources */,
 				EABE1A06211EF0B9003EE6DD /* Frameworks */,
 				EABE1A07211EF0B9003EE6DD /* Resources */,
-				0F8F473FF805B50FA3CD60E4 /* [CP] Embed Pods Frameworks */,
+				035B282DC34A2947BAF15CB1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -343,7 +343,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F8F473FF805B50FA3CD60E4 /* [CP] Embed Pods Frameworks */ = {
+		035B282DC34A2947BAF15CB1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -406,6 +406,7 @@
 			files = (
 				EABE1A32211EF310003EE6DD /* HomeViewController.swift in Sources */,
 				EA40A9A821997D830035CE2B /* SettingViewController.swift in Sources */,
+				CE9833EB2199D57000A53F8C /* AboutViewController.swift in Sources */,
 				EABE1A2E211EF2E1003EE6DD /* LoginViewController.swift in Sources */,
 				CE37B7422199649F00F7B67B /* LeftViewCell.swift in Sources */,
 				EABE1A0D211EF0B9003EE6DD /* AppDelegate.swift in Sources */,
@@ -418,7 +419,6 @@
 				EABE1A39211EF3BC003EE6DD /* ChartViewController.swift in Sources */,
 				CE37B73C2199646F00F7B67B /* NavigationController.swift in Sources */,
 				EAFA4365216A152A0048267F /* Constant.swift in Sources */,
-				CE37B748219965BE00F7B67B /* AboutViewController.swift in Sources */,
 				CE37B744219964AA00F7B67B /* LeftViewController.swift in Sources */,
 				CE37B7402199649A00F7B67B /* ViewController.swift in Sources */,
 				496255EC2120249100850949 /* ExerciseListsCollectionViewCell.swift in Sources */,
@@ -562,6 +562,7 @@
 			baseConfigurationReference = 7A7535CA4AF77B98D398E8E3 /* Pods-fitnesskeeper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V2NHD2PTYH;
 				INFOPLIST_FILE = fitnesskeeper/Info.plist;
