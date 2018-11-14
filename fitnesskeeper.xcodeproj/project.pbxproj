@@ -108,6 +108,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE90E856219BE5B2004F1837 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				CE9833EA2199D57000A53F8C /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		EA40A9A4219970E60035CE2B /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				CE37B7412199649F00F7B67B /* LeftViewCell.swift */,
-				CE9833EA2199D57000A53F8C /* AboutViewController.swift */,
 				CE37B73D2199648700F7B67B /* ChooseNavigationController.swift */,
 				CE37B73F2199649A00F7B67B /* ViewController.swift */,
 				CE37B73B2199646F00F7B67B /* NavigationController.swift */,
@@ -190,6 +197,7 @@
 				EA40A9A4219970E60035CE2B /* SideMenu */,
 				EABE1A2F211EF2EC003EE6DD /* Login */,
 				EABE1A30211EF2F7003EE6DD /* Exercise */,
+				CE90E856219BE5B2004F1837 /* About */,
 				EABE1A37211EF382003EE6DD /* Chart */,
 				EA40A9A921997D860035CE2B /* Setting */,
 			);
