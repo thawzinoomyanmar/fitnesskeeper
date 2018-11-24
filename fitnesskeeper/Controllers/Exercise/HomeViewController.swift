@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import LGSideMenuController
+
 class HomeViewController: UIViewController {
     
     
@@ -24,31 +24,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var exerciseListCollection : UICollectionView!
     @IBOutlet weak var historyTableView       : UITableView!
     
-    @IBAction func sidemenuBtn(_ sender: UIBarButtonItem) {
-  sideMenuController?.showLeftView(animated: true, completionHandler: nil)
-
-        
-    }
-    @IBAction func logoutbtn(_ sender: UIBarButtonItem) {
-        do {
-            try Auth.auth().signOut()
-            self.navigationController?.dismiss(animated: true, completion: nil)
-        } catch {
-            print("Error in logout")
-        }
-        
-        
-        
-        
-    }
-    
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.dataSource = self
         historyTableView.delegate   = self
-        setup()
+       setup()
         
         
       
@@ -70,7 +51,6 @@ class HomeViewController: UIViewController {
         segmentCtrl.selectedSegmentIndex = 0
         segmentCtrl.addTarget(self, action :  #selector(clickSegment(_ :)) , for : .valueChanged)
         segmentCtrl.tintColor            =  Default.segmentTintColor
-        self.view.backgroundColor = Default.tabarColor
         
         activitiyCellWidth               = ( self.view.frame.width - hGap * ( colPerRows - 1) ) / colPerRows
         activitiyCellHeight              =  activitiyCellWidth * 1.2

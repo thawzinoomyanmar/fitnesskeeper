@@ -8,19 +8,16 @@
 
 import UIKit
 import Firebase
-import LGSideMenuController
 class LoginViewController: UIViewController {
-   //sideMenuVC?.showLeftView(animated: true, completionHandler: nil)
+   
 var mode = 0 // for mode signup = 1
    
 
-    @IBOutlet weak var loginUIView: UIView!
     @IBOutlet weak var signUpInBtn: UIButton!
     @IBOutlet weak var changeModeBtn: UIButton!
     
     @IBOutlet weak var emailTextField: UITextField!
     
-  
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var lblCaution: UILabel!
     
@@ -45,9 +42,6 @@ var mode = 0 // for mode signup = 1
             self.hideBusy()
             if let error =  error {
                 self.alert(title: "Error", message: error.localizedDescription   )
-            }else {
-                //Login Success
-                self.clearInputField()
             }
 
             
@@ -62,15 +56,11 @@ var mode = 0 // for mode signup = 1
         guard let pwd = passwordTextField.text , pwd != "" else {
             return
         }
-        self.showBusy()
+        
         Auth.auth().signIn (withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
            self.hideBusy()
             if let error =  error {
                 self.alert(title: "Error", message: error.localizedDescription   )
-            }
-            else {
-                //Login Success
-                self.clearInputField()
             }
           
         }
@@ -97,16 +87,11 @@ var mode = 0 // for mode signup = 1
                 self.changeModeBtn.setTitle("Already register? Log In", for: .normal)
                 
             }
-    func  clearInputField(){
-        self.emailTextField.text = ""
-        self.passwordTextField.text = ""
-    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
        setLoginUI()
-        loginUIView.backgroundColor = Default.backgroundColor
-       view.backgroundColor = Default.backgroundColor
         Auth.auth().addStateDidChangeListener{(auth, user) in
             if user != nil {
                 //user is active
@@ -121,7 +106,7 @@ var mode = 0 // for mode signup = 1
     //MARK: Load HomeVC
     func loadHomeVC( ) {
         let sb =  UIStoryboard(name: "ExerciseStoryboard", bundle: nil)
-        if  let homeVC = sb.instantiateInitialViewController() as?  LGSideMenuController {
+        if  let homeVC = sb.instantiateInitialViewController() as? UINavigationController {
             present(homeVC, animated: true, completion: nil)
         }
     }

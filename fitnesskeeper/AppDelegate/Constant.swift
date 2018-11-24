@@ -30,8 +30,6 @@ struct Default {
     static var tabarColor = UIColor(red:0.51, green:0.19, blue:0.81, alpha:1.0)//(red: 0.651, green: 0.349, blue: 0.8784, alpha: 1.0)
     static var segmentTintColor  = UIColor.white
     static var welcomelogo = "runningman"
-    static var runningManColor = UIColor(red:249/255, green:154/255, blue:34/255, alpha:1.0)
-    static var backgroundColor = UIColor(red:0.51, green:0.19, blue:0.81, alpha:1.0)
-    
+    static var runningManColor = UIColor(red:249/255, green:154/255, blue:34/255, alpha:1.0) 
     
 }
