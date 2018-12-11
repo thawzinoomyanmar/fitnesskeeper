@@ -9,23 +9,25 @@
 import UIKit
 import Firebase
 import LGSideMenuController
-class HomeViewController: UIViewController {
+import StoreKit
+class HomeViewController: UIViewController,SKPaymentTransactionObserver, SKRequestDelegate , SKProductsRequestDelegate  {
     
     
     var activities                                     = [Activity]()
     var subActivities                                     = [Activity]()
     var historyActivities                              = [Activity]()
     var isSubActivities                                =  false
-    
+    let saleID =  "com.techplus.fitnessapp.premium"
     var activitiyCellWidth                    :CGFloat = 0
      var activitiyCellHeight                  :CGFloat = 0
     var hGap                                  :CGFloat = 2
     var colPerRows                            :CGFloat = 3
+    
     @IBOutlet weak var exerciseListCollection : UICollectionView!
     @IBOutlet weak var historyTableView       : UITableView!
     
     @IBAction func sidemenuBtn(_ sender: UIBarButtonItem) {
-  sideMenuController?.showLeftView(animated: true, completionHandler: nil)
+        sideMenuController?.showLeftView(animated: true, completionHandler: nil)
 
         
     }
@@ -75,6 +77,9 @@ class HomeViewController: UIViewController {
         activitiyCellWidth               = ( self.view.frame.width - hGap * ( colPerRows - 1) ) / colPerRows
         activitiyCellHeight              =  activitiyCellWidth * 1.2
         exerciseListCollection.delegate  = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(startPurchase), name: Notification.Name("purchase"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(restorePremium), name: Notification.Name("restore"), object: nil)
         
          if  !isSubActivities {
             addObserver( isSubActivities)
@@ -233,7 +238,7 @@ class HomeViewController: UIViewController {
                         }
                     }
                 }
-                
+              
                 self.historyTableView.reloadData()
             }
         }
@@ -274,11 +279,13 @@ extension HomeViewController:  UICollectionViewDataSource {
                 }
                 vc.activities =  currentActivity.subActivities
                 vc.isSubActivities = true
+            
                 navigationController?.pushViewController(vc, animated: true)
         }
     else {
             let exerciseInfoVC = ExerciseInfoViewController(nibName: "ExerciseInfoViewController", bundle: nil)
         exerciseInfoVC.activity = currentActivity
+            exerciseInfoVC.totalRecord = self.historyActivities.count
             navigationController?.pushViewController(exerciseInfoVC, animated: true)
         }
     }
@@ -318,6 +325,177 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             cell?.config(historyActivities[ indexPath.row] )
             return cell!
         }
+        
+        
+        
+        //MARK: IAP
+   
+        @objc func restorePremium() {
+            SKPaymentQueue.default().add(self)
+            SKPaymentQueue.default().restoreCompletedTransactions()
+        }
+        
+        @objc func startPurchase(){
+            self.showBusy = true
+            if self.canMakePayments() {
+                print( "IAP Ready")
+                
+                let product:Set<String> = [saleID]
+                let productRequest = SKProductsRequest(productIdentifiers: product)
+                
+                productRequest.delegate = self
+                productRequest.start()
+            }
+            else {
+                print(  "Sorry")
+                self.showBusy = false
+                
+            }
+        }
+        func canMakePayments() -> Bool {
+            return SKPaymentQueue.canMakePayments()
+        }
+        
+        func savePremiumState(state:Bool)
+        {
+            
+            self.showBusy = false
+            UserDefaults.standard.set( state, forKey: "premium")
+            UserDefaults.standard.synchronize()
+        }
+        //IAP Standard Code for single product
+        func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+            print("Loaded list of products...")
+            let products = response.products
+            
+            if (products.count > 0)
+            {
+                for p in products {
+                    print("Found product: \(p.productIdentifier) \n\(p.localizedTitle) \n\(p.price.floatValue)\n---------")
+                }
+                
+                //If you are try to buy a single product then call purchaseProduct with the first element of array
+                
+                self.purchaseProduct(products[0]) //*****
+                
+            }
+            else
+            {
+                print("sorry can't find the productid")
+                alert(title:"Product Error",message:"Can't find the product during this time.\nPlease try again in a few minute!" )
+                
+            }
+        }
+        
+        
+        
+        func requestProductInfo(_ productIDs:Set<String>) {
+            if SKPaymentQueue.canMakePayments() {
+                
+                
+                let productRequest = SKProductsRequest(productIdentifiers:productIDs)
+                
+                productRequest.delegate = self
+                
+                print("Proceed to perform IAP")
+                productRequest.start()
+                
+            }
+            else {
+                print("Cannot perform IAP")
+                alert(title:"Permission Error",message:"In app-purchase is disable.\nPlease enable and try again!")
+            }
+        }
+        
+        /// Initiates purchase of a product.
+        func purchaseProduct(_ product: SKProduct) {
+            print("Buying \(product.productIdentifier)...")
+            let payment = SKPayment(product: product)
+            SKPaymentQueue.default().add(self)
+            SKPaymentQueue.default().add(payment)
+        }
+        
+        func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+            for transaction in transactions {
+                switch (transaction.transactionState) {
+                case .purchased:
+                    print("Purchased")
+                    //
+                    completeTransaction(transaction)
+                    self.showBusy = false
+                    break
+                case .failed:
+                    print("Transaction Failed")
+                    failedTransaction(transaction)
+                    self.showBusy = false
+                    break
+                case .restored:
+                    //Called when Product is purposely restored
+                    print("Restored")
+                    restoreTransaction(transaction)
+                    self.showBusy = false
+                     SKPaymentQueue.default().finishTransaction(transaction)
+                    break
+                case .deferred:
+                    print("Deferring....")
+                    self.showBusy = false
+                    break
+                case .purchasing:
+                    print("Purchasing....")
+                    break
+                }
+            }
+        }
+        
+        fileprivate func provideContentForProductIdentifier(_ productIdentifier: String) {
+            
+            if productIdentifier == saleID { // only one product  it has so
+                savePremiumState(state:true)
+                
+                NotificationCenter.default.post(name: Notification.Name("premiumpurchased"), object: nil)
+                self.showBusy = false
+            }
+            
+            
+        }
+        
+        
+        fileprivate func completeTransaction(_ transaction: SKPaymentTransaction) {
+            print("completeTransaction...")
+            provideContentForProductIdentifier(transaction.payment.productIdentifier)
+            SKPaymentQueue.default().finishTransaction(transaction)
+            
+            
+        }
+        
+        fileprivate func restoreTransaction(_ transaction: SKPaymentTransaction) {
+            let productIdentifier = transaction.original!.payment.productIdentifier
+            print("restoreTransaction... \(productIdentifier)")
+            provideContentForProductIdentifier(productIdentifier)
+            
+            self.showBusy = false
+            alert(title: "Success", message: "Your previous purchase has been successfully restored")
+             SKPaymentQueue.default().finishTransaction(transaction)
+        }
+        fileprivate func failedTransaction(_ transaction: SKPaymentTransaction) {
+            print("failedTransaction...")
+            
+            //   print("Transaction error: \(transaction.error!.localizedDescription)")
+            alert(title:"Transaction error",message:transaction.error!.localizedDescription )
+            SKPaymentQueue.default().finishTransaction(transaction)
+            self.showBusy = false
+            
+        }
+        
+        func request(_ request: SKRequest, didFailWithError error: Error) {
+            print("Failed to load list of products.")
+            alert(title:"Error",message:error.localizedDescription )
+            self.showBusy = false
+            
+        }
+        
+        
+        
     }
 
  

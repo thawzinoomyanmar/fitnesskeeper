@@ -27,7 +27,7 @@ import Kingfisher
 class ExerciseInfoViewController: UIViewController {
 
     var activity:Activity! //will allocate later , given by other
-    
+    var totalRecord:Int!
     
     @IBOutlet weak var exerciseImageView: UIImageView!
     
@@ -38,14 +38,41 @@ class ExerciseInfoViewController: UIViewController {
     
     @IBAction func addActivity(_ sender:UIButton) {
        
+        
         let addActivityVC = AddNewActivityViewController(nibName: "AddNewActivityViewController", bundle: nil)
         addActivityVC.activity =  activity
         
+        if totalRecord > 20 {
+            if checkIAPStatus()  {
+               
+             navigationController?.pushViewController(addActivityVC, animated: true)
+        } else {
+            self.alert(title: "Unlock Premium", message: "Adding more than 20 records required to unlock premium features", actionStrings: ["Cancel","Proceed"]) { (action) in
+                if action.title == "Proceed" {
+                        self.showBusy = true
+                        self.purchasePremium()
+                }
+            }
+        
+        }
+        } else {
+              navigationController?.pushViewController(addActivityVC, animated: true)
+        }
 //        navigationController?.viewControllers.first?.present(addActivityVC, animated: true, completion: {
 //                    self.navigationController?.popViewController(animated: false )
 //        })
         
-         navigationController?.pushViewController(addActivityVC, animated: true)
+        
+    }
+    func  purchasePremium() {
+         NotificationCenter.default.post(name: Notification.Name("purchase"), object: nil)
+    }
+    
+    func checkIAPStatus()-> Bool  {
+           return  UserDefaults.standard.bool(forKey: "premium")
+    }
+    func setIAPStatus()   {
+          UserDefaults.standard.set(true, forKey: "premium")
     }
     
     override func viewDidLoad() {
@@ -63,9 +90,14 @@ class ExerciseInfoViewController: UIViewController {
         
        
 
-        // Do any additional setup after loading the view.
+       NotificationCenter.default.addObserver(self, selector: #selector(updatePremiumstate), name: Notification.Name("premiumpurchased"), object: nil)
     }
-
+    
+    @objc func  updatePremiumstate( ) {
+        setIAPStatus()
+        addActivity(UIButton())
+        self.showBusy = false
+    }
     
     
 

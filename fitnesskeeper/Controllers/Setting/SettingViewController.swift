@@ -10,6 +10,17 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
+    @IBAction func restore(_ sender: UIButton) {
+        self.showBusy = true
+        
+         NotificationCenter.default.post(name: Notification.Name("restore"), object: nil)
+         self.showBusy = false
+    }
+    @IBAction func unlockPremium(_ sender: Any) {
+        self.showBusy = true
+         NotificationCenter.default.post(name: Notification.Name("purchase"), object: nil)
+         self.showBusy = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
